@@ -1,0 +1,9 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["/src/components/dropdown.js",
+"/src/App.js"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+} 

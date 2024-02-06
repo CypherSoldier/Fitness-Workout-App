@@ -1,4 +1,6 @@
 import './App.css';
+import './navbar.css';
+import './login.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginPage from './components/login.js';
 import useToken from './components/useToken.js';
@@ -15,7 +17,7 @@ function App() {
     <div className="login">
       <BrowserRouter>
       <Routes>
-      <Route path='/' element={<DashBoard/>}/>
+      <Route path='/CypherSoldier/Fitness-Workout-app' element={<DashBoard/>}/>
       </Routes>
       </BrowserRouter>
     </div>

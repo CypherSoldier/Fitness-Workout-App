@@ -1,6 +1,8 @@
 import NavBar from './navbar.js'
 import Days from './days.js'
 import DropDown from './dropdown.js';
+import AddExercise from './addExercise.js';
+//import SavedExe from './exeTest.js';
 
 //main header
 function Body() {
@@ -20,7 +22,7 @@ function Main() {
   return (
     <div className="main-board">
       <body className="days">
-        
+        <AddExercise />
       </body>
     </div>
   );

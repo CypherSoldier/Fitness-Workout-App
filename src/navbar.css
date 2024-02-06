@@ -1,0 +1,62 @@
+/* header {
+  position: fixed; nav-bar should always be at the top of the viewport
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: lightgray;
+  color: white;
+  padding: 1;
+} */
+
+header {
+    background-color: #191a1c;
+}
+
+li {
+    display: inline;
+}
+  
+.icon {
+    float: left;
+}
+  
+.user {
+    float: right;
+}
+  
+.nav-bar {
+    padding-top: 10px;
+    display: flex;
+      justify-content: space-around;
+      align-items: center; 
+    background-color: #191a1c;
+}
+  
+.nav-bar a {
+    padding: 10px 30px; 
+    color: rgba(17,183,122,.856);
+    text-decoration: none; 
+    cursor: pointer; 
+}
+  
+.nav-bar a:hover {
+    color: white;
+}
+  
+img {
+    width: 5vh;
+    height: 5vh;
+}
+  
+.dropdown-toggle {
+    background-color: #191a1c;
+    border-style: solid;
+}
+  
+.dropdown {
+    float: right;
+}
+  
+#close-CSS {
+    background-image: url('https://img.freepik.com/premium-photo/future-possibilities-futuristic-cyborg-human-modified-with-digital-technology-generative-ai_549702-454.jpg' );
+}

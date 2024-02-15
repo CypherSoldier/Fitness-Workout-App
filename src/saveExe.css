@@ -1,0 +1,19 @@
+.savedExercises {
+    color: black;
+    width: 35vh;
+    height: 35vh;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.img {
+    width: 35vh;
+    height: 20vh;
+}
+
+.bottom {
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+    padding-top: 20px;
+}

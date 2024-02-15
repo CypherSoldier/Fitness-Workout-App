@@ -18,6 +18,8 @@ li {
   
 .icon {
     float: left;
+    width: 5vh;
+    height: 5vh;
 }
   
 .user {
@@ -42,12 +44,7 @@ li {
 .nav-bar a:hover {
     color: white;
 }
-  
-img {
-    width: 5vh;
-    height: 5vh;
-}
-  
+
 .dropdown-toggle {
     background-color: #191a1c;
     border-style: solid;
@@ -59,4 +56,9 @@ img {
   
 #close-CSS {
     background-image: url('https://img.freepik.com/premium-photo/future-possibilities-futuristic-cyborg-human-modified-with-digital-technology-generative-ai_549702-454.jpg' );
+}
+
+.rounded-circle {
+    width: 5vh;
+    height: 5vh;
 }

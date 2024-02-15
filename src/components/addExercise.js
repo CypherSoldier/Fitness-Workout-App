@@ -2,17 +2,26 @@
 import React, { useState } from 'react';
 
 function AddExercise() {
-    const [nameValue, setNameValue] = useState('');
     const [setsValue, setSetsValue] = useState(0);
     const [repsValue, setRepsValue] = useState(0);
     const [kgsValue, setKgsValue] = useState(0);
     const [exerciseValue, setExerciseValue] = useState('');
+    const [nameValue, setNameValue] = useState('');
+    const [savedExercises, setSavedExercises] = useState([]);
     
-    const handleInputChange = (event) => {
+    const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
-        //setRepsValue(event.target.value);
-        //setKgsValue(event.target.value);
         console.log('Sets value:', setsValue);
+    };
+
+    const handleInputChangeReps = (event) => {
+        setRepsValue(event.target.value);
+        console.log('Sets value:', repsValue);
+    };
+
+    const handleInputChangeKgs = (event) => {
+        setKgsValue(event.target.value);
+        console.log('Sets value:', kgsValue);
     };
     
     const handleExerciseChange = (event) => {
@@ -26,18 +35,28 @@ function AddExercise() {
     }
 
     //
-    const [savedExercises, setSavedExercises] = useState([]);
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        // Save the current exercise to the list
-        setSavedExercises([...savedExercises, nameValue]);
+        const newExercise = {
+            name: nameValue,
+            sets: setsValue,
+            reps: repsValue,
+            kgs: kgsValue,
+            exercise: exerciseValue
+        };
 
-        // Clear the input field after saving
+        setSavedExercises([...savedExercises, newExercise]);
+
+        // Clear the input fields after saving
         setNameValue('');
+        setSetsValue(0);
+        setRepsValue(0);
+        setKgsValue(0);
+        setExerciseValue('chest'); // reset exercise value to default
     }
     //
+    console.log(savedExercises);
 
     return (
         <div className="form">
@@ -62,15 +81,15 @@ function AddExercise() {
                 <div className="int">
                 <label>
                     <p>Sets</p>
-                    <input className="inDetail" type="number" id="sets" value={setsValue} onChange={handleInputChange} min="0"/>
+                    <input className="inDetail" type="number" id="sets" value={setsValue} onChange={handleInputChangeSets} min="0"/>
                 </label>
                 <label>
                     <p>Reps</p>
-                    <input className="inDetail" type="number" id="reps" defaultValue={0} min="1"/>
+                    <input className="inDetail" type="number" id="reps" value={repsValue} onChange={handleInputChangeReps} min="1"/>
                 </label>
                 <label>
                     <p>kg</p>
-                    <input className="inDetail" type="number" id="kg" defaultValue={0} min="1"/>
+                    <input className="inDetail" type="number" id="kg" value={kgsValue} onChange={handleInputChangeKgs} min="1"/>
                 </label>
                 </div>
                 <label>
@@ -85,13 +104,24 @@ function AddExercise() {
     );
 }
 
-export default AddExercise;
+/*export function SavedExe({savedExercises}) {
+    return(
+        <div className="savedExercises">
+                <h2>Saved Exercises:</h2>
+                {savedExercises.map((exercise, index) => (
+                <div className="body" key={index}>
+                    <div className="top">
+                        <p>{exercise.name}</p>
+                        <span>{exercise.exercise}</span>
+                    </div>
+                    <div className="bottom">
+                        <span>{exercise.sets}</span>
+                        <span>{exercise.reps}</span>
+                        <span>{exercise.kgs}</span>
+                    </div>
+                </div>))}       
+        </div>
+    );
+}*/
 
-/*<div className="savedExercises">
-    <h2>Saved Exercises:</h2>
-        <ul>
-            {savedExercises.map((exercise, index) => (
-                <li key={index}>{exercise}</li>
-                ))}
-        </ul>
-</div>*/
+export default AddExercise;

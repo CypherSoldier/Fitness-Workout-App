@@ -11,27 +11,27 @@ function AddExercise() {
     
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
-        console.log('Sets value:', setsValue);
+        //console.log('Sets value:', setsValue);
     };
 
     const handleInputChangeReps = (event) => {
         setRepsValue(event.target.value);
-        console.log('Sets value:', repsValue);
+        //console.log('Sets value:', repsValue);
     };
 
     const handleInputChangeKgs = (event) => {
         setKgsValue(event.target.value);
-        console.log('Sets value:', kgsValue);
+        //console.log('Sets value:', kgsValue);
     };
     
     const handleExerciseChange = (event) => {
         setExerciseValue(event.target.value);
-        console.log(exerciseValue);
+        //console.log(exerciseValue);
     };
 
     const handleNameInput = (event) => {
         setNameValue(event.target.value);
-        console.log(nameValue);
+        //console.log(nameValue);
     }
 
     //
@@ -103,25 +103,5 @@ function AddExercise() {
         </div>
     );
 }
-
-/*export function SavedExe({savedExercises}) {
-    return(
-        <div className="savedExercises">
-                <h2>Saved Exercises:</h2>
-                {savedExercises.map((exercise, index) => (
-                <div className="body" key={index}>
-                    <div className="top">
-                        <p>{exercise.name}</p>
-                        <span>{exercise.exercise}</span>
-                    </div>
-                    <div className="bottom">
-                        <span>{exercise.sets}</span>
-                        <span>{exercise.reps}</span>
-                        <span>{exercise.kgs}</span>
-                    </div>
-                </div>))}       
-        </div>
-    );
-}*/
 
 export default AddExercise;

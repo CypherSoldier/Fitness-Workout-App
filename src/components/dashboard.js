@@ -1,5 +1,4 @@
 import NavBar from './navbar.js'
-import Days from './days.js'
 import DropDown from './dropdown.js';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
@@ -15,8 +14,6 @@ function Body() {
     setSavedExercises([...savedExercises, newExercise]);
     setShowForm(false); // Hide the form after adding exercise
   };//
-
-  console.log(savedExercises);
 
   return (
     <div className='fitness'>
@@ -46,29 +43,5 @@ function Main({ showForm, setShowForm, handleAddExercise, savedExercises }) {
     </div>
   );
 }
-
-/*
-{showForm ? (
-<AddExercise handleAddExercise={handleAddExercise} />
-) : (
-<SavedExe savedExercises={savedExercises} />
-)}
-<button onClick={() => setShowForm(!showForm)}>
-{showForm ? 'Back to Dashboard' : 'Show Form'}
-</button>
-*/
-
-// only up to 7 days can be added, id="day1" is there by default, user can add more days and delete
-/*function Days() {
-  return (
-    <div className="days">
-      <div id="day1"></div>
-      <div>
-        <button id="add"></button>
-        <button id="delete"></button>
-      </div>
-    </div>
-  );
-}*/
 
 export default Body;

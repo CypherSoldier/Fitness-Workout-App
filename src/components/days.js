@@ -37,29 +37,6 @@ function Days() {
         <button className="btn btn-outline-primary" onClick={addDay} id="add">Add</button>
       </div>
     );
-  
-    /*return (
-      <div className="days">
-        {days.map((day, index) => (
-          <div key={index} className="day">
-            <div id={day}>
-              <input
-                className="textBox"
-                type="text"
-                placeholder={`Enter text for ${day}`}
-                onChange={(e) => saveText(index, e.target.value)}
-              />
-              <button onClick={() => deleteDay(index)}>Delete</button>
-            </div>
-            <div>
-              <button onClick={addDay} id="add">
-                Add
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    );*/
   }
 
 export default Days;

@@ -97,7 +97,7 @@ function AddExercise() {
                     <input type="file" />
                 </label>
                 <div className="saveExe">
-                    <button type="submit">Add</button>
+                    <button className='save' type="submit">Add Workout</button>
                 </div>
             </form>
         </div>

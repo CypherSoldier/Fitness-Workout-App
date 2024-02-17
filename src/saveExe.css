@@ -1,9 +1,10 @@
 .savedExercises {
-    color: black;
+    color: white;
     width: 35vh;
     height: 35vh;
     background-color: white;
     border-radius: 5px;
+    background-color: #191a1c;
 }
 
 .img {
@@ -16,4 +17,8 @@
 	justify-content: space-around;
 	align-items: center;
     padding-top: 20px;
+}
+
+.top {
+    padding-top: 10px;
 }

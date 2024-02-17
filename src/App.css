@@ -58,7 +58,7 @@ input {
 }
 
 .exeInfo {
-  color: rgba(17,183,122,.856);
+  color: white;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -66,8 +66,10 @@ input {
   align-content: center;
 }
 
+/*rgba(17,183,122,.856)*/
+
 .form {
-  background-color: white;
+  background-color: #191a1c;
   width: 50vh;
   heigth: 70vh;
   border-radius: 10px;
@@ -86,5 +88,18 @@ input {
 .saveExe {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.save {
+  background-color: rgba(17,183,122,.856);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #1e2225;
+}
+
+input, select {
+  background-color: #1e2225;
+  border-color: rgba(17,183,122,.856);
+  color: white;
 }
 /*background-color: #6ac88d;*/

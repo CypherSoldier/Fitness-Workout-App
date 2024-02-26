@@ -15,6 +15,8 @@ function Body() {
     setShowForm(false); // Hide the form after adding exercise
   };//
 
+  console.log(handleAddExercise);
+
   return (
     <div className='fitness'>
       <header id="colorChange" className='fitness-header'>
@@ -39,6 +41,9 @@ function Main({ showForm, setShowForm, handleAddExercise, savedExercises }) {
         <button onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Back to Dashboard' : 'Show Form'}
         </button>
+      </div>
+      <div>
+      <SavedExe savedExercises={savedExercises} />
       </div>
     </div>
   );

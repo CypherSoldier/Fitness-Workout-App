@@ -1,40 +1,33 @@
 //
 import React, { useState } from 'react';
 
-function AddExercise() {
+function AddExercise({ handleAddExercise }) {
     const [setsValue, setSetsValue] = useState(0);
     const [repsValue, setRepsValue] = useState(0);
     const [kgsValue, setKgsValue] = useState(0);
     const [exerciseValue, setExerciseValue] = useState('');
     const [nameValue, setNameValue] = useState('');
-    const [savedExercises, setSavedExercises] = useState([]);
-    
+
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
-        //console.log('Sets value:', setsValue);
     };
 
     const handleInputChangeReps = (event) => {
         setRepsValue(event.target.value);
-        //console.log('Sets value:', repsValue);
     };
 
     const handleInputChangeKgs = (event) => {
         setKgsValue(event.target.value);
-        //console.log('Sets value:', kgsValue);
     };
     
     const handleExerciseChange = (event) => {
         setExerciseValue(event.target.value);
-        //console.log(exerciseValue);
     };
 
     const handleNameInput = (event) => {
         setNameValue(event.target.value);
-        //console.log(nameValue);
     }
 
-    //
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -46,7 +39,8 @@ function AddExercise() {
             exercise: exerciseValue
         };
 
-        setSavedExercises([...savedExercises, newExercise]);
+        // Call the function passed from Body to add new exercise
+        handleAddExercise(newExercise);
 
         // Clear the input fields after saving
         setNameValue('');
@@ -56,7 +50,6 @@ function AddExercise() {
         setExerciseValue('chest'); // reset exercise value to default
     }
     //
-    console.log(savedExercises);
 
     return (
         <div className="form">
@@ -105,3 +98,19 @@ function AddExercise() {
 }
 
 export default AddExercise;
+
+/* <div className="savedExercises">
+                <h2>Saved Exercises:</h2>
+                {savedExercises.map((exercise, index) => (
+                <div className="body" key={index}>
+                    <div className="top">
+                        <p>{exercise.name}</p>
+                        <span>{exercise.exercise}</span>
+                    </div>
+                    <div className="bottom">
+                        <span>{exercise.sets}</span>
+                        <span>{exercise.reps}</span>
+                        <span>{exercise.kgs}</span>
+                    </div>
+                </div>))} 
+        </div> */

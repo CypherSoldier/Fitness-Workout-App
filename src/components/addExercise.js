@@ -7,6 +7,7 @@ function AddExercise({ handleAddExercise }) {
     const [kgsValue, setKgsValue] = useState(0);
     const [exerciseValue, setExerciseValue] = useState('');
     const [nameValue, setNameValue] = useState('');
+    const [imageValue, setImageValue] = useState('');
 
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
@@ -28,6 +29,10 @@ function AddExercise({ handleAddExercise }) {
         setNameValue(event.target.value);
     }
 
+    const handleImageInput = (event) => {
+        setImageValue(event.target.value);
+    }
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -36,8 +41,10 @@ function AddExercise({ handleAddExercise }) {
             sets: setsValue,
             reps: repsValue,
             kgs: kgsValue,
-            exercise: exerciseValue
+            exercise: exerciseValue,
+            image: imageValue
         };
+        console.log(newExercise);
 
         // Call the function passed from Body to add new exercise
         handleAddExercise(newExercise);
@@ -48,6 +55,7 @@ function AddExercise({ handleAddExercise }) {
         setRepsValue(0);
         setKgsValue(0);
         setExerciseValue('chest'); // reset exercise value to default
+        setImageValue('');
     }
     //
 
@@ -86,8 +94,8 @@ function AddExercise({ handleAddExercise }) {
                 </label>
                 </div>
                 <label>
-                    <p>--image--</p>
-                    <input type="file" />
+                    <p>Upload Image</p>
+                    <input type="file" id="img" value={imageValue} onChange={handleImageInput}/>
                 </label>
                 <div className="saveExe">
                     <button className='save' type="submit">Add Workout</button>

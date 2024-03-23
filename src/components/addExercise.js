@@ -106,19 +106,3 @@ function AddExercise({ handleAddExercise }) {
 }
 
 export default AddExercise;
-
-/* <div className="savedExercises">
-                <h2>Saved Exercises:</h2>
-                {savedExercises.map((exercise, index) => (
-                <div className="body" key={index}>
-                    <div className="top">
-                        <p>{exercise.name}</p>
-                        <span>{exercise.exercise}</span>
-                    </div>
-                    <div className="bottom">
-                        <span>{exercise.sets}</span>
-                        <span>{exercise.reps}</span>
-                        <span>{exercise.kgs}</span>
-                    </div>
-                </div>))} 
-        </div> */

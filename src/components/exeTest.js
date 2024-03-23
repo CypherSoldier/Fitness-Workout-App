@@ -4,7 +4,7 @@ function SavedExe({ savedExercises }) {
         {savedExercises.map((exercise, index) => (
         <div className="savedExercises">
           <div className="image">
-          <img className="img" src="https://d3gbf3ykm8gp5c.cloudfront.net/content/uploads/2019/09/01090644/Bryan-Habana-running-away-against-Samoa-2007-World-Cup-PA.jpg"/>
+          <img className="img"/>
           </div>
           <div className="body" key={index}>
             <div className="top">

@@ -21,7 +21,7 @@ function Body() {
     <div className='fitness'>
       <header id="colorChange" className='fitness-header'>
       <DropDown />
-      <img className="icon" src="https://www.svgrepo.com/show/475044/dumbbell.svg" alt='logo'></img>
+      <img className="icon" alt='logo'></img>
       <NavBar />
       </header>
       <Main showForm={showForm} setShowForm={setShowForm} handleAddExercise={handleAddExercise} savedExercises={savedExercises} />

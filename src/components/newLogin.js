@@ -25,10 +25,11 @@ function LoginPage() {
             <form className="info">
               <p className="intro">Hi, there!</p>
                 <div className="loginButton">
-                    <button className="loginButtonStyle" onClick={signInWithGoogle}>Sign In with Google</button>
+                    <button type="submit" className="loginButtonStyle" onClick={signInWithGoogle}>Sign In with Google</button>
                 </div>
             </form>
         </div>
+        
       )}
     </>
     );

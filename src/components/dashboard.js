@@ -38,7 +38,7 @@ function Main({ showForm, setShowForm, handleAddExercise, savedExercises }) {
         ) : (
           <SavedExe savedExercises={savedExercises} />
         )}
-        <button class="addExe" onClick={() => setShowForm(!showForm)}>
+        <button className="addExe" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Back to Dashboard' : 'Show Form'}
         </button>
       </div>

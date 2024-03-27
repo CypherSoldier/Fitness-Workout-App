@@ -6,7 +6,8 @@ import DashBoard from './dashboard.js';
 function LoginPage() {
     const [user] = useAuthState(auth);
     
-    const signInWithGoogle = async () => {
+    const signInWithGoogle = async (event) => {
+      event.preventDefault(); // Prevent default form submission behavior
         try {
             await signInWithPopup(auth, googleProvider);
         } catch (error) {

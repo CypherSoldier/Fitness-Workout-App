@@ -22,7 +22,15 @@ function LoginPage() {
           <DashBoard />
         </>
       ) : (
-        <button type="submit" className="loginButtonStyle" onClick={signInWithGoogle}>Sign In With Google</button>
+        <div className="items">
+            <form className="info">
+              <p className="intro">Hi there!</p>
+                <div className="loginButton">
+                <button type="submit" className="loginButtonStyle" onClick={signInWithGoogle}>Sign In With Google</button>
+                </div>
+            </form>
+        </div>
+
       )}
     </>
     );

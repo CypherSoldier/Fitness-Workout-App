@@ -15,4 +15,4 @@ Sign-In authentication with Firebase API. User can add workouts by bringing up t
 
 ## Preview
 <img src="https://github.com/CypherSoldier/Random-Quote-Generator/assets/107351021/1b6dc5b2-d656-429b-aaa2-aa729bf80d37">
-<img src="https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/1b6dc5b2-d656-429b-aaa2-aa729bf80d37">
+<img src="https://github.com/CypherSoldier/Fitness-Workout-App/blob/main/Screenshot_28-3-2024_18519_cyphersoldier.github.io.jpeg">

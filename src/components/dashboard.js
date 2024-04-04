@@ -15,6 +15,12 @@ function Body() {
     setShowForm(false); // Hide the form after adding exercise
   };//
 
+  const handleDeleteExercise = (index) => {
+    const updatedExercises = [...savedExercises];
+    updatedExercises.splice(index, 1);
+    setSavedExercises(updatedExercises);
+  };
+
   //console.log(handleAddExercise);
 
   return (
@@ -24,19 +30,19 @@ function Body() {
       <img className="icon" src="https://www.svgrepo.com/show/475044/dumbbell.svg" alt='logo'></img>
       <NavBar />
       </header>
-      <Main showForm={showForm} setShowForm={setShowForm} handleAddExercise={handleAddExercise} savedExercises={savedExercises} />
+      <Main showForm={showForm} setShowForm={setShowForm} handleAddExercise={handleAddExercise} savedExercises={savedExercises} onDeleteExercise={handleDeleteExercise}/>
     </div>
   );
 }
 
-function Main({ showForm, setShowForm, handleAddExercise, savedExercises }) {
+function Main({ showForm, setShowForm, handleAddExercise, savedExercises, onDeleteExercise}) {
   return (
     <div className="main-board">
       <div className="days">
         {showForm ? (
           <AddExercise handleAddExercise={handleAddExercise} />
         ) : (
-          <SavedExe savedExercises={savedExercises} />
+          <SavedExe savedExercises={savedExercises} onDeleteExercise={onDeleteExercise}/>
         )}
         <button className="addExe" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Back to Dashboard' : 'Show Form'}

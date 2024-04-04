@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+## Fitness Workout App
+Sign-In authentication with Firebase API. User can add workouts by bringing up the form and sumbitting the necessary information (name, muscle group, sets, reps, kilograms). User can also delete any workout and log out of the application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Programming languages and frameworks used
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/devicons/devicon/55609aa5bd817ff167afce0d965585c92040787a/icons/bootstrap/bootstrap-plain.svg" title="Bootstrap" alt="CSS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-plain-wordmark.svg" title="React" alt="NodeJS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original-wordmark.svg" title="React" alt="ExpressJS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-original.svg" title="React" alt="Firebase" width="40" height="40"/>&nbsp;
+</div>
 
-## Available Scripts
+## Preview
+<img src="https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/cee6660b-372d-4ae1-9c89-38bbd15eb4b1">
+<img src="https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/2acf0688-9456-4306-bf1b-bad3e184dd69">
+<img src="https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/de294414-15a2-47ce-8dfd-c237e8c75f27">
+<img src="https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/5efc2eb5-9e67-4be7-a37f-6787b946103a">
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!--![Screenshot_28-3-2024_18519_cyphersoldier github io](https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/cee6660b-372d-4ae1-9c89-38bbd15eb4b1)
+![Screenshot_28-3-2024_18719_localhost](https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/2acf0688-9456-4306-bf1b-bad3e184dd69)
+![Screenshot_28-3-2024_18840_localhost](https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/de294414-15a2-47ce-8dfd-c237e8c75f27)
+![Screenshot_28-3-2024_203158_localhost](https://github.com/CypherSoldier/Fitness-Workout-App/assets/107351021/5efc2eb5-9e67-4be7-a37f-6787b946103a)
+-->

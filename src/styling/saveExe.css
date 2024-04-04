@@ -1,7 +1,7 @@
 .savedExercises {
     color: white;
     width: 35vh;
-    height: 35vh;
+    height: 40vh;
     background-color: white;
     border-radius: 5px;
     background-color: #191a1c;
@@ -21,4 +21,15 @@
 
 .top {
     padding-top: 10px;
+}
+
+.deleteExe {
+    background-color: rgba(173, 17, 17, 0.67);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #1e2225;
+}
+
+.deleteButton {
+    padding-top: 20px;
 }

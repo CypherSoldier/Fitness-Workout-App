@@ -1,8 +1,8 @@
-import { auth, googleProvider } from './config.js';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from './config.js';
+//import { useAuthState } from 'react-firebase-hooks/auth';
 
 function DropDown() {
-  const [user] = useAuthState(auth);
+  //const [user] = useAuthState(auth);
   const handleLogout = () => {
     auth.signOut();
   };

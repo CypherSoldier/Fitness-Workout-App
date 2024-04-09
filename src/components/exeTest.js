@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function SavedExe({ savedExercises, onDeleteExercise }) {
   const deleteExercise = (index) => {
     onDeleteExercise(index);

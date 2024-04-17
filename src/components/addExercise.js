@@ -1,4 +1,3 @@
-//
 import React, { useState } from 'react';
 
 function AddExercise({ handleAddExercise }) {
@@ -7,7 +6,7 @@ function AddExercise({ handleAddExercise }) {
     const [kgsValue, setKgsValue] = useState(0);
     const [exerciseValue, setExerciseValue] = useState('');
     const [nameValue, setNameValue] = useState('');
-    const [imageValue, setImageValue] = useState('');
+    const [imageFile, setImageFile] = useState();
 
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
@@ -29,8 +28,9 @@ function AddExercise({ handleAddExercise }) {
         setNameValue(event.target.value);
     }
 
-    const handleImageInput = (event) => {
-        setImageValue(event.target.value);
+    function handleImageInput(event) {
+        console.log(event.target.files);
+        setImageFile(URL.createObjectURL(event.target.files[0]));
     }
 
     const handleFormSubmit = (event) => {
@@ -42,7 +42,7 @@ function AddExercise({ handleAddExercise }) {
             reps: repsValue,
             kgs: kgsValue,
             exercise: exerciseValue,
-            image: imageValue
+            image: imageFile
         };
         console.log(newExercise);
 
@@ -55,7 +55,7 @@ function AddExercise({ handleAddExercise }) {
         setRepsValue(0);
         setKgsValue(0);
         setExerciseValue('chest'); // reset exercise value to default
-        setImageValue('');
+        setImageFile('');
     }
     //
 
@@ -95,7 +95,7 @@ function AddExercise({ handleAddExercise }) {
                 </div>
                 <label>
                     <p>Upload Image</p>
-                    <input type="file" id="img" value={imageValue} onChange={handleImageInput}/>
+                    <input type="file" id="img" onChange={handleImageInput}/>
                 </label>
                 <div className="saveExe">
                     <button className='save' type="submit">Add Workout</button>

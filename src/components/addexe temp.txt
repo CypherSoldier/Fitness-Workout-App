@@ -44,7 +44,7 @@ function AddExercise({ handleAddExercise }) {
         setImageFile(URL.createObjectURL(event.target.files[0]));
     }
 
-    const handleFormSubmit = async (event) => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
 
         //object stores all entered information
@@ -58,28 +58,25 @@ function AddExercise({ handleAddExercise }) {
         };
         console.log(newExercise);
 
-        try {
-            // Make POST request to your backend API endpoint
-            const response = await axios.post('http://localhost:5000/submit', newExercise);
+        // Call the function passed from Body to add new exercise
+        // links to const handleAddExercise in exeTest.js [0]
+        handleAddExercise(newExercise);//
+        
+        // Store the submitted exercise in local storage
+        // Upon reloading webpage, saved data still persists
+        //see projectDocs.txt for explanation
+        const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
+        localStorage.setItem('savedExercises', JSON.stringify([...exercisesFromStorage, newExercise]));
 
-            // Handle success response from backend
-            console.log(response.data); // Log response from backend
-            handleAddExercise(newExercise); // Call the function passed from Body to add new exercise
-
-            // Store the submitted exercise in local storage if needed
-
-            // Clear the input fields after saving
-            setNameValue('');
-            setSetsValue(0);
-            setRepsValue(0);
-            setKgsValue(0);
-            setExerciseValue('chest'); // reset exercise value to default
-            setImageFile('');
-        } catch (error) {
-            // Handle error from backend
-            console.error('There was an error submitting the form!', error);
-        }
-    };
+        // Clear the input fields after saving
+        //After submitting, resets the form values
+        setNameValue('');
+        setSetsValue(0);
+        setRepsValue(0);
+        setKgsValue(0);
+        setExerciseValue('chest'); // reset exercise value to default
+        setImageFile('');
+    }
     //
 
     return (

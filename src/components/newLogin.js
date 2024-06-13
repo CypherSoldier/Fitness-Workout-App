@@ -2,6 +2,14 @@ import { auth, googleProvider } from './config.js';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import DashBoard from './dashboard.js';
+import axios from 'axios';
+
+/*const apiCall = () => {
+  axios.get('http://localhost:8080').then((data) => {
+    //this console.log will be in our frontend console
+    console.log(data)
+  })
+}*/
 
 function LoginPage() {
     const [user] = useAuthState(auth);
@@ -36,4 +44,5 @@ function LoginPage() {
     );
 }
 
+//<button onClick={apiCall}>Make API Call</button>
 export default LoginPage;

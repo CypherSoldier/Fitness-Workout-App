@@ -1,4 +1,3 @@
-
 .fitness {
   text-align: center;
 }
@@ -12,9 +11,20 @@
   justify-content: space-evenly;
 }
 
+@media (max-width: 1440px) {
+  /* CSS rules for Samsung Galaxy S20 Ultra */
+  .main-board {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #1e2225;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
 .days {
   border-radius: 10px;
-
   background-color: #1e2225;
   margin-left: 10vh;
   margin-right: 10vh;

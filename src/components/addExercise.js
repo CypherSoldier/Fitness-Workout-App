@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const defaultImageURL = 'https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg';
 //we use handleAddExercise to store our object containing the values in 'newExercise'
 //and allowing the handleAddExercise to access the object
 function AddExercise({ handleAddExercise }) {
@@ -9,7 +10,7 @@ function AddExercise({ handleAddExercise }) {
     const [kgsValue, setKgsValue] = useState(0);
     const [exerciseValue, setExerciseValue] = useState('');
     const [nameValue, setNameValue] = useState('');
-    const [imageFile, setImageFile] = useState();
+    const [imageFile, setImageFile] = useState(defaultImageURL);
 
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
@@ -74,7 +75,7 @@ function AddExercise({ handleAddExercise }) {
             setRepsValue(0);
             setKgsValue(0);
             setExerciseValue('chest'); // reset exercise value to default
-            setImageFile('');
+            setImageFile(defaultImageURL);
         } catch (error) {
             // Handle error from backend
             console.error('There was an error submitting the form!', error);

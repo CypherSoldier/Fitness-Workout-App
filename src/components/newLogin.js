@@ -2,7 +2,6 @@ import { auth, googleProvider } from './config.js';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import DashBoard from './dashboard.js';
-import axios from 'axios';
 
 /*const apiCall = () => {
   axios.get('http://localhost:8080').then((data) => {

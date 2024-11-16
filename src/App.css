@@ -125,9 +125,17 @@ input, select {
 }
 /*background-color: #6ac88d;*/
 
+/*
 .wOne {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}*/
+
+.wOne {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+  gap: 8vh;
 }

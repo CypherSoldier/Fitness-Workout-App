@@ -3,7 +3,6 @@ import DropDown from './dropdown.js';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
 import React, { useState, useEffect} from 'react';
-import axios from 'axios';
 
 //main header
 function Body() {

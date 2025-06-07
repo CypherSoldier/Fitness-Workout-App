@@ -1,22 +1,21 @@
 import { auth } from './config.js';
 //import { useAuthState } from 'react-firebase-hooks/auth';
 
-function DropDown() {
+function DropDown({ user }) {
   //const [user] = useAuthState(auth);
   const handleLogout = () => {
     auth.signOut();
   };
 
-
   return (
       <div className="dropdown">
-      <button className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="close-CSS">
-        <img alt="profile" src="https://img.freepik.com/premium-photo/future-possibilities-futuristic-cyborg-human-modified-with-digital-technology-generative-ai_549702-454.jpg"
-        className="rounded-circle"></img>
+      <button className="profile-btn" type="button" aria-expanded="false">
+      <img src={user.photoURL} alt='logo'></img>
       </button>
-      <ul className="dropdown-menu">
-        <li><a className="dropdown-item" href="!#" onClick={handleLogout}>Log Out</a></li>
-      </ul>
+      <div className="dropdown-menu">
+        <a className="dropdown-item" href="!#">My Profile</a>
+        <a className="dropdown-item" href="!#" onClick={handleLogout}>Log Out</a>
+      </div>
       </div>
     );
   }

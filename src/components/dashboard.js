@@ -1,60 +1,63 @@
+import React, { useState, useEffect } from 'react';
 import NavBar from './navbar.js';
-import DropDown from './dropdown.js';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
-import React, { useState, useEffect} from 'react';
 
-//main header
 function Body() {
-  //
-  const [showForm, setShowForm] = useState(false); // show form is set to false ---> line 54: 'if(showForm)' is true then...
-  const [savedExercises, setSavedExercises] = useState([]); //The initial value for savedExercises is set to an empty array []
+  const [showForm, setShowForm] = useState(false);
+  const [savedExercises, setSavedExercises] = useState([]);
 
-  useEffect(() => { //*******************
-    // Retrieve saved exercises from local storage on component mount
+  // Retrieve saved exercises from localStorage on mount
+  useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
+    console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
   }, []);
 
-  //This function gets called from the AddExercise[0] component when a user submits a new exercise.
+  // Add a new exercise and update localStorage
   const handleAddExercise = (newExercise) => {
-    setSavedExercises([...savedExercises, newExercise]); //newExercise object is added to the empty array savedExercices
-    setShowForm(false); // Hide the form after adding exercise
-  };//
-
-  const handleDeleteExercise = (index) => { //**************
-    const updatedExercises = [...savedExercises];
-    updatedExercises.splice(index, 1);
-    setSavedExercises(updatedExercises);
-    localStorage.setItem('savedExercises', JSON.stringify(updatedExercises));
+    setSavedExercises((prevExercises) => {
+      const updatedExercises = [...prevExercises, newExercise];
+      localStorage.setItem('savedExercises', JSON.stringify(updatedExercises)); // Step 1 fix
+      return updatedExercises;
+    });
+    setShowForm(false);
   };
-  //console.log(handleAddExercise);
+
+  // Delete an exercise and update localStorage
+  const handleDeleteExercise = (index) => {
+    setSavedExercises((prevExercises) => {
+      const updatedExercises = prevExercises.filter((_, i) => i !== index);
+      localStorage.setItem('savedExercises', JSON.stringify(updatedExercises)); // Step 2 fix
+      return updatedExercises;
+    });
+  };
 
   return (
     <div className='fitness'>
-      <header id="colorChange" className='fitness-header'>
-      <DropDown />
-      <img className="icon" src="https://www.svgrepo.com/show/475044/dumbbell.svg" alt='logo'></img>
-      <NavBar />
-      </header>
-      <Main showForm={showForm} //
-      setShowForm={setShowForm} 
-      handleAddExercise={handleAddExercise} 
-      savedExercises={savedExercises} 
-      onDeleteExercise={handleDeleteExercise}
-      setSavedExercises={setSavedExercises}/>
+      <nav id="colorChange" className='fitness-header'>
+        <NavBar />
+      </nav>
+      <Main 
+        showForm={showForm}
+        setShowForm={setShowForm}
+        handleAddExercise={handleAddExercise}
+        savedExercises={savedExercises}
+        onDeleteExercise={handleDeleteExercise}
+      />
     </div>
   );
 }
 
-//ternary conditional operator: if(showForm == true) then render <AddExercise/> else render <SavedExe/>
-//The !showForm part flips the value of showForm (e.g., if it was true, it becomes false and vice versa).
-//The button text changes dynamically based on showForm --> line 59
-function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise}) {
+function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise }) {
   return (
     <div className="main-board">
       <div className="days">
-        {showForm ? (<AddExercise handleAddExercise={handleAddExercise} />) : (<SavedExe savedExercises={savedExercises} onDeleteExercise={onDeleteExercise}/>)}
+        {showForm ? (
+          <AddExercise handleAddExercise={handleAddExercise} />
+        ) : (
+          <SavedExe savedExercises={savedExercises} onDeleteExercise={onDeleteExercise} />
+        )}
         <button className="addExe" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Back to Dashboard' : 'Show Form'}
         </button>
@@ -62,12 +65,5 @@ function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDele
     </div>
   );
 }
-//FIGURE OUT HOW THE ADDING OF EXERCISE COMPONENT WORKS**********
-//ALSO ASK AI TO EXPLAIN HOW THE PROPS WORK FOR MORE CLARIFICATION***********
-export default Body;
 
-/*
-<div>
-  <SavedExe savedExercises={savedExercises} />
-</div>
-*/
+export default Body;

@@ -16,14 +16,14 @@ li {
     display: inline;
 }
 
+/*
 .fitness-header {
     padding-bottom: 5px;
+    padding: 0.5rem 1rem;
 }
-  
-.icon {
-    float: left;
-    width: 5vh;
-    height: 5vh;
+*/
+.logo img {
+    height: 64px;
 }
   
 .user {
@@ -31,10 +31,11 @@ li {
 }
   
 .nav-bar {
-    padding-top: 10px;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
     align-items: center; 
+    justify-content: space-between;
     background-color: #191a1c;
 }
   
@@ -49,9 +50,16 @@ li {
     color: white;
 }
 
-.dropdown-toggle {
-    background-color: #191a1c;
-    border-style: solid;
+.profile-btn {
+    background: none;
+    border-style: none;
+    cursor: pointer;
+}
+
+.profile-btn img {
+    width: 72px;
+    height: 64px;
+    border-radius: 50%;
 }
   
 .dropdown {
@@ -65,4 +73,55 @@ li {
 .rounded-circle {
     width: 5vh;
     height: 5vh;
+}
+
+/* -------- */
+
+.nav-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.profile-menu {
+    position: relative;
+}
+  
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+  
+.profile-menu:hover .dropdown-menu {
+    display: block;
+}
+  
+.dropdown-item {
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+  
+.dropdown-item:hover {
+    background: #f3f4f6;
 }

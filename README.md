@@ -1,5 +1,5 @@
 ## Fitness Workout App
-Sign-In authentication with Firebase API. User can add workouts by bringing up the form and sumbitting the necessary information (name, muscle group, sets, reps, kilograms). User can also delete any workout and log out of the application.
+Sign-In authentication with Firebase API. User can add workouts by bringing up the form and sumbitting the necessary information (name, muscle group, sets, reps, kilograms). User can also delete any workout and log out of the application. Exercise data is stored in a MongoDB database and local storage for later access.
 
 ## Programming languages and frameworks used
 <div>

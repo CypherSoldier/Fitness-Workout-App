@@ -3,14 +3,15 @@ import { auth } from './config.js';
 
 function DropDown({ user }) {
   //const [user] = useAuthState(auth);
+  
   const handleLogout = () => {
     auth.signOut();
   };
-
+  
   return (
       <div className="dropdown">
       <button className="profile-btn" type="button" aria-expanded="false">
-      <img src={user.photoURL} alt='logo'></img>
+      <img src="" alt='logo'></img>
       </button>
       <div className="dropdown-menu">
         <a className="dropdown-item" href="!#">My Profile</a>

@@ -1,6 +1,7 @@
 import DropDown from './dropdown.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './config.js';
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [user] = useAuthState(auth);
@@ -13,8 +14,8 @@ function NavBar() {
               </div>
             </div>
             <ul>
-              <li><a href="#about" >Fitness Calculator</a></li>
-              <li><a href="#video" >Trending</a></li>
+              <li><Link to="/">Dashboard</Link></li>
+              <li><Link to="/CypherSoldier/Trending">Trending</Link></li>
             </ul>
             <div className="nav-right">
               <div className="profile-menu">

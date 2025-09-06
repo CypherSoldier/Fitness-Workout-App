@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './navbar.js';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
+import SearchBar from './searchbar.js';
 
-function Body() {
+function Body(props) {
   const [showForm, setShowForm] = useState(false);
   const [savedExercises, setSavedExercises] = useState([]);
-
+  const [inputText, setInputText] = useState("");
+  const [editIndex, setEditIndex] = useState(null);
+  
   // Retrieve saved exercises from localStorage on mount
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
@@ -15,6 +18,7 @@ function Body() {
   }, []);
 
   // Add a new exercise and update localStorage
+  // CREATE
   const handleAddExercise = (newExercise) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = [...prevExercises, newExercise];
@@ -25,6 +29,7 @@ function Body() {
   };
 
   // Delete an exercise and update localStorage
+  // DELETE
   const handleDeleteExercise = (index) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = prevExercises.filter((_, i) => i !== index);
@@ -32,31 +37,69 @@ function Body() {
       return updatedExercises;
     });
   };
+  // READ
+  const filteredData = savedExercises.filter((el) => {
+    if (props.input === '') {
+      return true;
+    }
+    else {
+      return el.exercise.toLowerCase().includes(inputText);
+    }
+  })
+
+  const editData = (index) => {
+    setEditIndex(index);
+    setShowForm(true);
+  }
+
+  const handleSaveExercise = (updatedExercise) => {
+    setSavedExercises((prevExercises) => {
+      const updatedExercises = [...prevExercises];
+      updatedExercises[editIndex] = updatedExercise;
+      localStorage.setItem('savedExercises', JSON.stringify(updatedExercises));
+      return updatedExercises;
+    });
+    setEditIndex(null);
+    setShowForm(false);
+  };
 
   return (
     <div className='fitness'>
       <nav id="colorChange" className='fitness-header'>
-        <NavBar />
+        
       </nav>
+      {!showForm ? ( <SearchBar setInputText={setInputText}/> ) : null}
       <Main 
         showForm={showForm}
         setShowForm={setShowForm}
         handleAddExercise={handleAddExercise}
         savedExercises={savedExercises}
         onDeleteExercise={handleDeleteExercise}
+        filteredData={filteredData}
+        onEditExercise={editData}
+        editIndex={editIndex}
+        handleSaveExercise={handleSaveExercise} 
       />
     </div>
   );
 }
-
-function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise }) {
+// READ -> LINE 73
+function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise, filteredData, onEditExercise, handleSaveExercise, editIndex }) {
   return (
     <div className="main-board">
       <div className="days">
         {showForm ? (
-          <AddExercise handleAddExercise={handleAddExercise} />
+          <AddExercise 
+          handleAddExercise={editIndex !== null ? handleSaveExercise : handleAddExercise} 
+          initialValues={editIndex !== null ? savedExercises[editIndex] : null} 
+          />
         ) : (
-          <SavedExe savedExercises={savedExercises} onDeleteExercise={onDeleteExercise} />
+            filteredData.map((item, index) => (
+                <SavedExe key={index} 
+                savedExercises={[item]} 
+                onDeleteExercise={() => onDeleteExercise(index)} 
+                onEditExercise={() => onEditExercise(index)} />
+            ))
         )}
         <button className="addExe" onClick={() => setShowForm(!showForm)}>
           {showForm ? 'Back to Dashboard' : 'Show Form'}

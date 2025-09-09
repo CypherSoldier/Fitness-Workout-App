@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './navbar.js';
+//import NavBar from './navbar.js';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
 import SearchBar from './searchbar.js';

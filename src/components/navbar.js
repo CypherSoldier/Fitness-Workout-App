@@ -28,19 +28,3 @@ function NavBar() {
   }
 
 export default NavBar;
-/*
-function NavBar() {
-  return (
-    <div className="nav-bar">
-      <img className="icon" src="https://www.svgrepo.com/show/475044/dumbbell.svg" alt='logo'></img>
-      <ul>
-        <li><a href="#about" >Fitness Calculator</a></li>
-        <li><a href="#video" >Trending</a></li>
-      </ul>
-      <DropDown />
-    </div>
-  );
-}
-
-export default NavBar;
-*/

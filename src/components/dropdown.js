@@ -2,8 +2,7 @@ import { auth } from './config.js';
 //import { useAuthState } from 'react-firebase-hooks/auth';
 
 function DropDown({ user }) {
-  //const [user] = useAuthState(auth);
-  
+
   const handleLogout = () => {
     auth.signOut();
   };

@@ -33,13 +33,3 @@ function App() {
 };
 
 export default App;
-
-/* 
-<div className="login">
-      <BrowserRouter>
-      <Routes>
-      <Route path='/CypherSoldier/Fitness-Workout-app' element={<DashBoard/>}/>
-      </Routes>
-      </BrowserRouter>
-</div>
-*/

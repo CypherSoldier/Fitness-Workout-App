@@ -14,7 +14,7 @@ function TrendingPage() {
       const src = parts.find((p) => p.startsWith("src="));
 
       if (src) {
-        let url = src.slice(5, -1); // remove src=" and ending "
+        let url = src.slice(5, -1);
         if (url.startsWith("//")) {
           url = "https:" + url;
         }
@@ -23,11 +23,9 @@ function TrendingPage() {
       return null;
     }).filter(Boolean);
 
-    // update state → triggers re-render
     setUrls(extracted);
   };
 
-  // Run once when component mounts
   useEffect(() => {
     handleNewQuote();
   }, []);

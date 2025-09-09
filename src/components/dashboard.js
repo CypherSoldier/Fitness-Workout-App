@@ -10,15 +10,12 @@ function Body(props) {
   const [inputText, setInputText] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   
-  // Retrieve saved exercises from localStorage on mount
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
   }, []);
 
-  // Add a new exercise and update localStorage
-  // CREATE
   const handleAddExercise = (newExercise) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = [...prevExercises, newExercise];
@@ -28,8 +25,6 @@ function Body(props) {
     setShowForm(false);
   };
 
-  // Delete an exercise and update localStorage
-  // DELETE
   const handleDeleteExercise = (index) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = prevExercises.filter((_, i) => i !== index);
@@ -37,7 +32,7 @@ function Body(props) {
       return updatedExercises;
     });
   };
-  // READ
+
   const filteredData = savedExercises.filter((el) => {
     if (props.input === '') {
       return true;
@@ -83,7 +78,7 @@ function Body(props) {
     </div>
   );
 }
-// READ -> LINE 73
+
 function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise, filteredData, onEditExercise, handleSaveExercise, editIndex }) {
   return (
     <div className="main-board">

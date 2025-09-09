@@ -34,17 +34,17 @@ const Form = mongoose.model('Form', formSchema);
 app.post('/submit', (req, res) => {
   const newExerciseData = req.body;
 
-  console.log("Received exercise data:", newExerciseData);  // 🧪 Log request
+  console.log("Received exercise data:", newExerciseData);
 
   const newExercise = new Form(newExerciseData);
 
   newExercise.save()
     .then(() => {
-      console.log("Exercise saved to DB");  // 🧪 Log save
+      console.log("Exercise saved to DB");
       res.status(200).send('Exercise added successfully!');
     })
     .catch((error) => {
-      console.error("Error saving exercise:", error);  // 🧪 Log errors
+      console.error("Error saving exercise:", error);
       res.status(500).send('Error adding exercise: ' + error.message);
     });
 });
@@ -52,11 +52,6 @@ app.post('/submit', (req, res) => {
 app.get("/", (req, resp) => {
  
   resp.send("App is Working");
-  // You can check backend is working or not by 
-  // entering http://loacalhost:5000
-   
-  // If you see App is working means
-  // backend working properly
 });
 
 app.listen(port, () => {

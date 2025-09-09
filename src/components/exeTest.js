@@ -1,5 +1,3 @@
-//the props are declared to access the contents of 'savedExercises'
-//and to delete the whole component **************
 function SavedExe({ savedExercises, onDeleteExercise, onEditExercise }) {
   const deleteExercise = (index) => { //
     onDeleteExercise(index); //
@@ -9,9 +7,6 @@ function SavedExe({ savedExercises, onDeleteExercise, onEditExercise }) {
     onEditExercise(index); //
   };
 
-    //https://legacy.reactjs.org/docs/lists-and-keys.html --- .map()
-    //https://www.codementor.io/@riza/different-ways-to-map-a-list-in-react-js-24deu7alb2
-    //https://www.freecodecamp.org/news/how-to-render-lists-in-react/
     return (
       <div className="wOne">
         {savedExercises.map((exercise, index) => (
@@ -51,13 +46,3 @@ function SavedExe({ savedExercises, onDeleteExercise, onEditExercise }) {
   }
 
 export default SavedExe;
-/*
-image
-name
-muscle
-sets reps kgs      
-*/     
-
-/*
-https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/dumbbell.png
-*/

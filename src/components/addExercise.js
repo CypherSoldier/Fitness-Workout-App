@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 const defaultImageURL = 'https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg';
-//we use handleAddExercise to store our object containing the values in 'newExercise'
-//and allowing the handleAddExercise to access the object
 function AddExercise({ handleAddExercise, initialValues }) {
     const [setsValue, setSetsValue] = useState(initialValues?.sets || 0);
     const [repsValue, setRepsValue] = useState(initialValues?.reps || 0);
@@ -14,10 +12,6 @@ function AddExercise({ handleAddExercise, initialValues }) {
     const handleInputChangeSets = (event) => {
         setSetsValue(event.target.value);
     };
-    //event.target gives you the element that triggered the event
-    //event.target.value retrieves the value of that element (an input field)
-
-    //see https://www.w3schools.com/react/react_forms.asp for optimisation
 
     const handleInputChangeReps = (event) => {
         setRepsValue(event.target.value);
@@ -35,11 +29,6 @@ function AddExercise({ handleAddExercise, initialValues }) {
         setNameValue(event.target.value);
     }
 
-    //The above updates the corresponding state variable with the new value from the input field
-
-    //Creates a temporary URL for the uploaded image and stores 
-    //it in imageFile using URL.createObjectURL.
-    // CREATE
     function handleImageInput(event) {
         console.log(event.target.files);
         setImageFile(URL.createObjectURL(event.target.files[0]));
@@ -58,7 +47,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
     };
 
     try {
-        // 🧠 This actually sends the data to your Express backend
+        // sends the data to express backend
         /*
         await fetch('http://localhost:5000/submit', {
             method: 'POST',
@@ -69,7 +58,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
         });
         // const response = await axios.post('http://localhost:5000/submit', newExercise);
         */
-        // Locally store it and update dashboard
+
         handleAddExercise(newExercise);
 
         // Clear form
@@ -84,7 +73,6 @@ function AddExercise({ handleAddExercise, initialValues }) {
     }
 };
 
-    //
 
     return (
         <div className="form">

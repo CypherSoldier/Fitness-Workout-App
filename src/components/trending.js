@@ -8,6 +8,7 @@ function TrendingPage() {
       "https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD53iNTGRZUPihELwvOflUeSFoN0o2SZJI&part=id,player&chart=mostPopular&maxResults=10&videoCategoryId=17"
     );
     const data = await response.json();
+    console.log(data);
 
     const extracted = data.items.map((value) => {
       const parts = value.player.embedHtml.split(" ");

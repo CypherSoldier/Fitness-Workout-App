@@ -1,35 +1,40 @@
 import './App.css';
-import './styling/navbar.css';
-import './styling/login.css';
-import './styling/saveExe.css';
-import './styling/searchbar.css';
+import './styles/navbar.css';
+import './styles/login.css';
+import './styles/saveExe.css';
+import './styles/searchbar.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-//import LoginPage from './components/newLogin.js';
-//import useToken from './components/useToken.js';
-import DashBoard from './components/dashboard.js';
+import LoginPage from './components/newLogin.js';
+import useToken from './components/useToken.js';
+import Body from './components/dashboard.js';
 import TrendingPage from './components/trending.js';
-import NavBar from './components/navbar.js';
+import ModernSidebar from './components/sidebar.js';
+import Layout from './components/layout.js';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, googleProvider } from './components/config.js';
 
 function App() {
-  /*
-  const { token, setToken } = useToken();
+  // const { token, setToken } = useToken();
 
-  if(!token) {
-    return <LoginPage setToken={setToken} />
-  }
-  */
+  const [user] = useAuthState(auth);
 
   return (
-    <div className="login">
-      <BrowserRouter>
-      <NavBar />
-      <Routes>
-      <Route path='/' element={<DashBoard/>}/>
-      <Route path='/CypherSoldier/Trending' element={<TrendingPage/>}/>
-      </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="login">
+        {!user ? (
+          <LoginPage />
+        ) : (           
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path='/' element={<Body/>}/>
+              <Route path='/CypherSoldier/Trending' element={<TrendingPage/>}/>
+              <Route path='/CypherSoldier/Analytics' element={<ModernSidebar/>}/>
+            </Route>
+          </Routes>
+        )}
       </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

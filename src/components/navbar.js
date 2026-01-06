@@ -16,6 +16,7 @@ function NavBar() {
             <ul>
               <li><Link to="/">Dashboard</Link></li>
               <li><Link to="/CypherSoldier/Trending">Trending</Link></li>
+              <li><Link to="/CypherSoldier/Analytics">Analytics</Link></li>
             </ul>
             <div className="nav-right">
               <div className="profile-menu">

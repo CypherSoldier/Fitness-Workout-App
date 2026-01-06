@@ -26,7 +26,9 @@ const formSchema = new mongoose.Schema({
   reps: Number,
   kgs: Number,
   exercise: String,
-  image: String
+  image: String,
+  date: Date,
+  user: String
 });
 
 const Form = mongoose.model('Form', formSchema);
@@ -49,10 +51,27 @@ app.post('/submit', (req, res) => {
     });
 });
 
-app.get("/", (req, resp) => {
- 
-  resp.send("App is Working");
-});
+app.get('/submit', async (req, res) => {
+  try {
+    // find({ name: 'john', age: { $gte: 18 } }).exec();
+    const doc = await Form.find({ user: 'Caleb Wagner' });
+    res.status(200).json(doc);
+    console.log("Success", doc);
+  } catch (error) {
+    res.status(500).send("Error fetching document");
+  }
+})
+
+app.delete('/submit/:id', async (req, res) => {
+  try {
+    const deletedExe = await Form.findByIdAndDelete(req.params.id);
+    if (!deletedExe) return res.status(404).json({ message: "Exercise not found" });
+    res.status(200).json();
+    console.log("Deleted");
+  } catch (err) {
+    res.status(500).json({ message: err.message }); 
+  }
+})
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

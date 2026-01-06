@@ -1,7 +1,7 @@
 import { auth, googleProvider } from './config.js';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import DashBoard from './dashboard.js';
+import Body from './dashboard.js';
 
 /*const apiCall = () => {
   axios.get('http://localhost:8080').then((data) => {
@@ -23,23 +23,14 @@ function LoginPage() {
     };
 
     return (
-      <>
-      {user ? (
-        <>
-          <DashBoard />
-        </>
-      ) : (
-        <div className="items">
-            <form className="info">
-              <p className="intro">Hi there!</p>
-                <div className="loginButton">
-                <button type="submit" className="loginButtonStyle" onClick={signInWithGoogle}>Sign In With Google</button>
-                </div>
-            </form>
-        </div>
-
-      )}
-    </>
+      <div className="items">
+          <form className="info">
+            <p className="intro">Hi there!</p>
+              <div className="loginButton">
+              <button type="submit" className="loginButtonStyle" onClick={signInWithGoogle}>Sign In With Google</button>
+              </div>
+          </form>
+      </div>
     );
 }
 

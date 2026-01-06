@@ -3,18 +3,35 @@ import React, { useState, useEffect } from 'react';
 import AddExercise from './addExercise.js';
 import SavedExe from './exeTest.js';
 import SearchBar from './searchbar.js';
+import NavBar from './navbar.js';
+import { Plus } from 'lucide-react';
+import axios from 'axios';
 
+// Anything marked with 'R*' is temporarily disabled/modified -> counterpart is 'T*'
 function Body(props) {
   const [showForm, setShowForm] = useState(false);
   const [savedExercises, setSavedExercises] = useState([]);
   const [inputText, setInputText] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   
+  /* R*
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
+  }, []); */
+
+  // T*
+  useEffect(() => {
+      axios.get('http://localhost:5000/submit')
+        .then(response => {
+          setSavedExercises(response.data)
+        })
+        .catch(error => {
+          console.error('There was an error fetching the items!', error);
+        });
   }, []);
+
 
   const handleAddExercise = (newExercise) => {
     setSavedExercises((prevExercises) => {
@@ -25,6 +42,7 @@ function Body(props) {
     setShowForm(false);
   };
 
+  // R*
   const handleDeleteExercise = (index) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = prevExercises.filter((_, i) => i !== index);
@@ -32,6 +50,20 @@ function Body(props) {
       return updatedExercises;
     });
   };
+
+  /* T*
+  const handleDeleteExercise = (id) => {
+    axios.delete(`http://localhost:5000/submit/${id}`)
+      .then(() => {
+        setSavedExercises(prev =>
+          prev.filter(exercise => exercise._id !== id)
+        );
+      })
+      .catch(error => {
+        console.error(error);
+    });
+  };
+  */
 
   const filteredData = savedExercises.filter((el) => {
     if (props.input === '') {
@@ -58,11 +90,14 @@ function Body(props) {
     setShowForm(false);
   };
 
+  /* under fitness
+  <nav id="colorChange" className='fitness-header'>
+        <NavBar/>
+      </nav>
+  */
   return (
     <div className='fitness'>
-      <nav id="colorChange" className='fitness-header'>
-        
-      </nav>
+      
       {!showForm ? ( <SearchBar setInputText={setInputText}/> ) : null}
       <Main 
         showForm={showForm}
@@ -82,6 +117,7 @@ function Body(props) {
 function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDeleteExercise, filteredData, onEditExercise, handleSaveExercise, editIndex }) {
   return (
     <div className="main-board">
+      <h1 className="text-3xl font-bold text-white mb-8 p-2">Your Exercises</h1>
       <div className="days">
         {showForm ? (
           <AddExercise 
@@ -96,8 +132,24 @@ function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDele
                 onEditExercise={() => onEditExercise(index)} />
             ))
         )}
-        <button className="addExe" onClick={() => setShowForm(!showForm)}>
-          {showForm ? 'Back to Dashboard' : 'Show Form'}
+        <button
+        className="fixed bottom-8 right-12 group rounded-xl p-4 transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-95 z-50"
+        style={{ 
+          backgroundColor: 'rgba(17,183,122,.856)',
+          boxShadow: '0 4px 20px rgba(17,183,122,.3)'
+        }}
+        onClick={() => setShowForm(!showForm)}
+      >
+        <Plus 
+          size={32} 
+          className={`text-white transition-transform duration-300 ${showForm ? 'rotate-45' : ''}`}
+          strokeWidth={3} 
+        />
+        
+        {/* Tooltip */}
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 rounded-lg text-sm font-medium text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" style={{ backgroundColor: '#282c30' }}>
+          {showForm ? 'Close' : 'Add Exercise'}
+        </span>
         </button>
       </div>
     </div>

@@ -1,16 +1,18 @@
-import DropDown from './dropdown.js';
+import DropDown from './dropdown';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './config.js';
+import { auth } from './firebase';
+import dumbbell from '../assets/dumbbell.svg';
 import { Link } from "react-router-dom";
 
 function NavBar() {
+  // https://www.svgrepo.com/show/475044/dumbbell.svg
   const [user] = useAuthState(auth);
     return (
         <div className="nav-bar">
           <div className="nav-content">
             <div className="nav-left">
               <div className="logo">
-              <img className="icon" src="https://www.svgrepo.com/show/475044/dumbbell.svg" alt='logo'></img>
+              <img className="icon" src={dumbbell} alt='logo'></img>
               </div>
             </div>
             <ul>

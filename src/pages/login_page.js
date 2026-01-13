@@ -1,7 +1,6 @@
-import { auth, googleProvider } from './config.js';
+import { auth, googleProvider } from '../components/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Body from './dashboard.js';
 
 /*const apiCall = () => {
   axios.get('http://localhost:8080').then((data) => {
@@ -11,7 +10,7 @@ import Body from './dashboard.js';
 }*/
 
 function LoginPage() {
-    const [user] = useAuthState(auth);
+    //const [user] = useAuthState(auth);
     
     const signInWithGoogle = async (event) => {
       event.preventDefault(); // Prevent default form submission behavior

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-//import NavBar from './navbar.js';
-import AddExercise from './addExercise.js';
-import SavedExe from './exeTest.js';
-import SearchBar from './searchbar.js';
-import NavBar from './navbar.js';
+import AddExercise from '../components/exercise_form';
+import SavedExe from '../components/exercise_card';
+import SearchBar from '../components/searchbar';
+//import NavBar from './navbar';
 import { Plus } from 'lucide-react';
 import axios from 'axios';
 
@@ -23,7 +22,7 @@ function Body(props) {
 
   // T*
   useEffect(() => {
-      axios.get('http://localhost:5000/submit')
+      axios.get('http://localhost:5000/exercises')
         .then(response => {
           setSavedExercises(response.data)
         })

@@ -1,5 +1,4 @@
 import React from 'react';
-import ModernSidebar from "./sidebar";
 
 import {
   Chart as ChartJS,

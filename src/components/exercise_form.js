@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Plus, Upload, Dumbbell } from 'lucide-react';
 import axios from 'axios';
-import { auth } from './config.js';
+import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+//import { default_image } from './assets'
 
 const defaultImageURL = 'https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg';
 function AddExercise({ handleAddExercise, initialValues }) {
@@ -65,6 +66,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
         });
         */
         // sends the data to express backend
+        // Revive
         await fetch('http://localhost:5000/submit', {
             method: 'POST',
             headers: {
@@ -72,6 +74,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
             },
             body: JSON.stringify(newExercise),
         });
+        
         // const response = await axios.post('http://localhost:3000/submit', newExercise);
         
 

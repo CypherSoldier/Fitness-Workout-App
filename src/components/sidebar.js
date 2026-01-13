@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, LogOut, BicepsFlexed } from 'lucide-react';
-import Analytics from './analytics_page'
+import { Menu, X, BicepsFlexed } from 'lucide-react';
+import Analytics from '../pages/analytics_page'
 
 export default function ModernSidebar() {
   const [isOpen, setIsOpen] = useState(true);

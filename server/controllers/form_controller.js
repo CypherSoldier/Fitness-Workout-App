@@ -31,6 +31,14 @@ const retrieveExercise = async (req, res) => {
     }
 }
 
+const deleteExercise = async (req, res) => {
+    const exercise = await Form.findById(req.params.id);
+    
+    await Form.findByIdAndDelete(req.params.id);
+
+    res.status(200).json(exercise);
+}
+
 /*
 app.delete('/submit/:id', async (req, res) => {
   try {
@@ -44,4 +52,4 @@ app.delete('/submit/:id', async (req, res) => {
 }
 */
 
-module.exports = { submitExercise, retrieveExercise }
+module.exports = { submitExercise, retrieveExercise, deleteExercise }

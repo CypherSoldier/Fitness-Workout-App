@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 const formSchema = new mongoose.Schema({
+  user_id: { type: mongoose.Schema.Types.ObjectId },
   name: String,
   sets: Number,
   reps: Number,
@@ -8,7 +9,8 @@ const formSchema = new mongoose.Schema({
   exercise: String,
   image: String,
   date: Date,
-  user: String
+  user: String,
+  day: String
 });
 
 module.exports = mongoose.model('Form', formSchema)

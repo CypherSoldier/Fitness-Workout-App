@@ -1,9 +1,24 @@
 import { auth } from './firebase.js';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../hooks/useAuth';
+
 
 function DropDown({ user }) {
+  const { logout } = useAuth();               // ← get the full logout from hook
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    auth.signOut();
+  const handleLogout = async () => {
+    try {
+      if (auth.currentUser) {
+        await auth.signOut();                 // ← sign out from Firebase
+      }
+
+      await logout();                         // ← then call the hook's logout to clear JWT
+
+      navigate('/login', { replace: true});                    // ← redirect to login page
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
   console.log(user?.displayName)
@@ -14,8 +29,11 @@ function DropDown({ user }) {
       <img src={user?.photoURL} alt="profile" referrerPolicy="no-referrer" />
       </button>
       <div className="dropdown-menu">
-        <a className="dropdown-item" href="!#">My Profile</a>
-        <a className="dropdown-item" href="!#" onClick={handleLogout}>Log Out</a>
+        <a className="dropdown-item"><Link to="/CypherSoldier/Profile">My Profile</Link></a>
+        <a className="dropdown-item" href="!#" onClick={(e) => {
+            e.preventDefault();     // ← very important – prevents navigation
+            handleLogout();
+          }}>Log Out</a>
       </div>
       </div>
     );

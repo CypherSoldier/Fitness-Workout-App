@@ -5,6 +5,8 @@ import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 //import { default_image } from './assets'
 
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
 const defaultImageURL = 'https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg';
 function AddExercise({ handleAddExercise, initialValues }) {
   const [setsValue, setSetsValue] = useState(initialValues?.sets || 0);
@@ -51,7 +53,8 @@ function AddExercise({ handleAddExercise, initialValues }) {
         exercise: exerciseValue,
         image: imageFile,
         date: new Date().toLocaleDateString('en-CA'),
-        user: user?.displayName
+        user: user?.displayName,
+        day: days[Math.floor(Math.random() * days.length)]
     };
 
     console.log(newExercise)
@@ -67,6 +70,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
         */
         // sends the data to express backend
         // Revive
+        /*
         await fetch('http://localhost:5000/submit', {
             method: 'POST',
             headers: {
@@ -74,6 +78,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
             },
             body: JSON.stringify(newExercise),
         });
+        */
         
         // const response = await axios.post('http://localhost:3000/submit', newExercise);
         

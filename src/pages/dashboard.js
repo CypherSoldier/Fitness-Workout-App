@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AddExercise from '../components/exercise_form';
 import SavedExe from '../components/exercise_card';
 import SearchBar from '../components/searchbar';
+import DayFilterSidebar from '../components/day_sidebar';
 //import NavBar from './navbar';
 import { Plus } from 'lucide-react';
 import axios from 'axios';
@@ -12,15 +13,16 @@ function Body(props) {
   const [savedExercises, setSavedExercises] = useState([]);
   const [inputText, setInputText] = useState("");
   const [editIndex, setEditIndex] = useState(null);
+  const [selectedDay, setSelectedDay] = useState("");
   
-  /* R*
+  // R*
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
-  }, []); */
+  }, []); 
 
-  // T*
+  /* T* 
   useEffect(() => {
       axios.get('http://localhost:5000/exercises')
         .then(response => {
@@ -30,7 +32,7 @@ function Body(props) {
           console.error('There was an error fetching the items!', error);
         });
   }, []);
-
+  */
 
   const handleAddExercise = (newExercise) => {
     setSavedExercises((prevExercises) => {
@@ -52,7 +54,7 @@ function Body(props) {
 
   /* T*
   const handleDeleteExercise = (id) => {
-    axios.delete(`http://localhost:5000/submit/${id}`)
+    axios.delete(`http://localhost:5000/${id}`)
       .then(() => {
         setSavedExercises(prev =>
           prev.filter(exercise => exercise._id !== id)
@@ -65,12 +67,11 @@ function Body(props) {
   */
 
   const filteredData = savedExercises.filter((el) => {
-    if (props.input === '') {
-      return true;
-    }
-    else {
-      return el.exercise.toLowerCase().includes(inputText);
-    }
+    const nameMatch = props.input === '' || el.exercise.toLowerCase().includes(inputText.toLowerCase());
+
+    const dayMatch = !selectedDay || el.day === selectedDay; // ← assumes your data has "day" field
+
+    return nameMatch && dayMatch;
   })
 
   const editData = (index) => {
@@ -95,20 +96,25 @@ function Body(props) {
       </nav>
   */
   return (
-    <div className='fitness'>
-      
-      {!showForm ? ( <SearchBar setInputText={setInputText}/> ) : null}
-      <Main 
-        showForm={showForm}
-        setShowForm={setShowForm}
-        handleAddExercise={handleAddExercise}
-        savedExercises={savedExercises}
-        onDeleteExercise={handleDeleteExercise}
-        filteredData={filteredData}
-        onEditExercise={editData}
-        editIndex={editIndex}
-        handleSaveExercise={handleSaveExercise} 
+    <div className="fitness flex h-screen">
+      <DayFilterSidebar
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
       />
+      <div className="flex-1 overflow-auto">
+        {!showForm ? ( <SearchBar setInputText={setInputText}/> ) : null}
+        <Main 
+          showForm={showForm}
+          setShowForm={setShowForm}
+          handleAddExercise={handleAddExercise}
+          savedExercises={savedExercises}
+          onDeleteExercise={handleDeleteExercise}
+          filteredData={filteredData}
+          onEditExercise={editData}
+          editIndex={editIndex}
+          handleSaveExercise={handleSaveExercise} 
+        />
+      </div>
     </div>
   );
 }

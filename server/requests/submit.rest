@@ -1,0 +1,14 @@
+POST http://localhost:5001/submit
+Content-Type: application/json
+
+{
+    "name": "test2",
+    "sets": 2,
+    "reps": 2,
+    "kgs": 2,
+    "exercise": "shoulders",
+    "image": "url",
+    "date": "2026-02-10",
+    "user": "Caleb Wagner",
+    "day": "Tuesday"
+}

@@ -3,7 +3,6 @@ import { Menu, X, BicepsFlexed } from 'lucide-react';
 
 export default function DayFilterSidebar({selectedDay, setSelectedDay,}) {
   const [isOpen, setIsOpen] = useState(true);
-  const [activeItem, setActiveItem] = useState('home');
 
   const DAYS = [
     { short: 'Mon', full: 'Monday', icon: BicepsFlexed},

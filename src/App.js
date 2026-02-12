@@ -11,8 +11,6 @@ import TrendingPage from './pages/trending';
 import ModernSidebar from './components/sidebar';
 import Layout from './components/layout';
 import ProfilePage from './pages/profile'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './components/firebase';
 import { useAuth } from './hooks/useAuth';
 
 function App() {

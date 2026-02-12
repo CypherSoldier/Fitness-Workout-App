@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { auth, googleProvider } from '../components/firebase';
-import { 
-  signInWithPopup, 
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword 
-} from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { useAuth } from '../hooks/useAuth';
 
 function LoginPage() {

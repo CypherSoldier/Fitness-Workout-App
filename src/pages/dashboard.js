@@ -5,7 +5,6 @@ import SearchBar from '../components/searchbar';
 import DayFilterSidebar from '../components/day_sidebar';
 //import NavBar from './navbar';
 import { Plus } from 'lucide-react';
-import axios from 'axios';
 
 // Anything marked with 'R*' is temporarily disabled/modified -> counterpart is 'T*'
 function Body(props) {

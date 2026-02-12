@@ -30,7 +30,7 @@ function DropDown({ user }) {
       </button>
       <div className="dropdown-menu">
         <a className="dropdown-item"><Link to="/CypherSoldier/Profile">My Profile</Link></a>
-        <a className="dropdown-item" href="!#" onClick={(e) => {
+        <a className="dropdown-item" onClick={(e) => {
             e.preventDefault();     // ← very important – prevents navigation
             handleLogout();
           }}>Log Out</a>

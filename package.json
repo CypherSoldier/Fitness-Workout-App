@@ -34,8 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "chart.js": "^4.0.0",
-    "postinstall": "flowbite-react register"
+    "chart.js": "^4.0.0"
   },
   "eslintConfig": {
     "extends": [

@@ -22,6 +22,7 @@ function LoginPage() {
     try {
       await signInWithPopup(auth, googleProvider);
       // useAuth hook will automatically detect Firebase user
+      window.location.href = '/';
     } catch (err) {
       console.error("Google sign-in error:", err);
       setError(err.message);

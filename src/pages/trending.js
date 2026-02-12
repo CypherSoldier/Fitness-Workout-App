@@ -4,9 +4,7 @@ function TrendingPage() {
   const [urls, setUrls] = useState([]);
 
   const handleNewQuote = async () => {
-    const response = await fetch(
-      "https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD53iNTGRZUPihELwvOflUeSFoN0o2SZJI&part=id,player&chart=mostPopular&maxResults=10&videoCategoryId=17"
-    );
+    const response = await fetch(process.env.GOOGLE_API);
     const data = await response.json();
     console.log(data);
 

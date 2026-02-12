@@ -1,4 +1,40 @@
+import React, { useState } from 'react';
+
 const ProfilePage = () => {
+  const [units, setUnits] = useState('');
+  const [workoutDays, setWorkoutDays] = useState(0);
+  const [primaryGoal, setPrimaryGoal] = useState('');
+  const [experienceLevel, setExperienceLevel] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [priorityMuscleGroups, setPriorityMuscleGroups] = useState([]);
+  const [injuryHistory, setInjuryHistory] = useState('');
+  const [equipmentAvailable, setEquipmentAvailable] = useState([]);
+  /* auto-calculated from logs, not user input
+  calculate using the Epley formula: 1RM = weight × (1 + reps/30) or the Brzycki formula: 1RM = weight × (36 / (37 - reps))
+  const [benchPR, setBenchPR] = useState('');
+  const [squatPR, setSquatPR] = useState('');
+  const [deadliftPR, setDeadliftPR] = useState('');
+  const [ohpPR, setOHPPR] = useState('');
+  */
+
+  // onChange={(e) => setDisplayName(e.target.value)}
+
+    // temp test data for user input
+  const inputData = {
+    units: units,
+    workoutDays: workoutDays,
+    primaryGoal: primaryGoal,
+    experienceLevel: experienceLevel,
+    selectedDate: selectedDate,
+    priorityMuscleGroups: priorityMuscleGroups,
+    injuryHistory: injuryHistory,
+    equipmentAvailable: equipmentAvailable,
+  };
+
+  console.log('Current input data:', inputData);
+
+  
+
   return (
     <div className="min-h-screen bg-[#1e2225] py-8 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl space-y-8">
@@ -43,11 +79,11 @@ const ProfilePage = () => {
                   <dt className="text-white">Units</dt>
                   <dd className="flex items-center gap-6">
                     <label className="flex items-center gap-2">
-                      <input type="checkbox" checked readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                      <input onClick={() => setUnits('metric')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       <span className="text-white">Metric (kg/cm)</span>
                     </label>
                     <label className="flex items-center gap-2">
-                      <input type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                      <input onClick={() => setUnits('imperial')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       <span className="text-white">Imperial</span>
                     </label>
                   </dd>
@@ -60,7 +96,16 @@ const ProfilePage = () => {
 
                 <div className="flex items-center justify-between">
                   <dt className="text-white">Workout Days / Week</dt>
-                  <dd className="font-medium text-white">4</dd>
+                  <dd className="font-medium text-white">
+                    <input
+                      type="number"
+                      value={workoutDays}
+                      onChange={(e) => setWorkoutDays(e.target.value)}
+                      placeholder="e.g. 3"
+                      required
+                      className="text-white w-24 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                    />
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -82,15 +127,15 @@ const ProfilePage = () => {
                 <dt className="text-white">Primary Goal</dt>
                 <dd className="flex items-center gap-6">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" checked readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600" />
+                    <input onClick={() => setPrimaryGoal('strength')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600" />
                     <span className="text-white">Strength</span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
+                    <input onClick={() => setPrimaryGoal('hypertrophy')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
                     <span className="text-white">Hypertrophy</span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
+                    <input onClick={() => setPrimaryGoal('endurance')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
                     <span className="text-white">Endurance</span>
                   </label>
                 </dd>
@@ -98,23 +143,38 @@ const ProfilePage = () => {
 
               <div className="flex justify-between">
                 <dt className="text-white">Experience Level</dt>
-                <dd className="font-medium text-white">Intermediate</dd>
+                <dd className="font-medium text-white">
+                  <select
+                    value={experienceLevel}
+                    onChange={(e) => setExperienceLevel(e.target.value)}
+                    className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  >
+                    <option value="" disabled>Select level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt className="text-white">Training Since</dt>
-                <dd className="font-medium text-white">Jan 2024</dd>
+                <dd className="font-medium text-white">
+                  <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+                </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt className="text-white">Priority Muscle Groups</dt>
-                <dd className="font-medium text-white">Chest, Back, Legs</dd>
+                <dd className="font-medium text-white">
+                  <input type="text" value={priorityMuscleGroups} onChange={(e) => setPriorityMuscleGroups(e.target.value)} placeholder="e.g. Chest, Back" className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+                </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt className="text-white">Injury History</dt>
                 <dd className="text-white max-w-prose">
-                  "Shoulder impingement 2023 – avoid OHP"
+                  <input type="text" value={injuryHistory} onChange={(e) => setInjuryHistory(e.target.value)} placeholder="e.g. None, or Knee injury in 2022" className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
                 </dd>
               </div>
 
@@ -124,9 +184,8 @@ const ProfilePage = () => {
                   {['Barbell', 'Dumbbells', 'Bench'].map(item => (
                     <label key={item} className="flex items-center gap-2">
                       <input
+                        onClick={() => setEquipmentAvailable(item)}
                         type="checkbox"
-                        checked
-                        readOnly
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <span>{item}</span>

@@ -35,7 +35,7 @@ function App() {
     {/* Protected routes – only show when logged in */}
     <Route 
       element={
-        loading ? <div>Loading...</div> : user ? <Layout /> : <Navigate to="/" replace />
+        loading ? <div>Loading...</div> : user ? <Layout /> : <Navigate to="/" replace /> // Layout and "/" might be the same place -> <Body /> (dashboard)
       }
     >
       <Route path="/" element={<Body />} />

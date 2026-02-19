@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function TrendingPage() {
   const [urls, setUrls] = useState([]);
 
   const handleNewQuote = async () => {
-    const response = await fetch(process.env.GOOGLE_API);
+    const response = await fetch(process.env.REACT_APP_GOOGLE_API);
     const data = await response.json();
     console.log(data);
 

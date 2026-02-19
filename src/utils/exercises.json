@@ -1,0 +1,258 @@
+[
+	{
+		"exercise": "Barbell Hip Thrusts",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 15,
+		"kgs": 32,
+		"muscle_group": "glutes"
+	},
+	{
+		"exercise": "DB Bench Press",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 16,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "DB Bench Press",
+		"last_updated": "2026-03-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 18,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "DB Bent Over Rows",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 15,
+		"muscle_group": "back"
+	},
+	{
+		"exercise": "DB Bicep Curl",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 9.25,
+		"muscle_group": "biceps"
+	},
+	{
+		"exercise": "DB Fly",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 11,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "DB Pullovers",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 21.5,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "DB Pullovers",
+		"last_updated": "2026-04-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 23,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "DB Single Arm Row",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 22.5,
+		"muscle_group": "back"
+	},
+	{
+		"exercise": "DB Sit Ups",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 20,
+		"kgs": 10,
+		"muscle_group": "abs"
+	},
+	{
+		"exercise": "DB T-Bar Row",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 8,
+		"kgs": 34,
+		"muscle_group": "back"
+	},
+	{
+		"exercise": "DB T-Bar Row",
+		"last_updated": "2026-03-13",
+		"sets": 2,
+		"reps": 8,
+		"kgs": 36,
+		"muscle_group": "back"
+	},
+	{
+		"exercise": "Drag Curls",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 27.5,
+		"muscle_group": "biceps"
+	},
+	{
+		"exercise": "Drag Curls",
+		"last_updated": "2026-04-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 29.5,
+		"muscle_group": "biceps"
+	},
+	{
+		"exercise": "French Press",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 8,
+		"kgs": 18,
+		"muscle_group": "triceps"
+	},
+	{
+		"exercise": "Front Squat",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 28.5,
+		"muscle_group": "legs"
+	},
+	{
+		"exercise": "Hammer Curls",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 10,
+		"muscle_group": "biceps"
+	},
+	{
+		"exercise": "Hammer Curls",
+		"last_updated": "2026-03-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 12,
+		"muscle_group": "biceps"
+	},
+	{
+		"exercise": "Hex Press",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 13.5,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "Hex Press",
+		"last_updated": "2026-03-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 15,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "Incline DB Bench Press",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 12.5,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "Incline DB Bench Press",
+		"last_updated": "2026-04-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 14,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "Incline DB Bench Press",
+		"last_updated": "2026-06-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 16,
+		"muscle_group": "chest"
+	},
+	{
+		"exercise": "Lateral Raise",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 6.5,
+		"muscle_group": "shoulders"
+	},
+	{
+		"exercise": "Romanian Deadlifts",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 22.5,
+		"muscle_group": "legs"
+	},
+	{
+		"exercise": "Seated Overhead DB Press",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 10,
+		"muscle_group": "shoulders"
+	},
+	{
+		"exercise": "Seated Reverse Fly",
+		"last_updated": "2026-02-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 7,
+		"muscle_group": "shoulders"
+	},
+	{
+		"exercise": "Seated Reverse Fly",
+		"last_updated": "2026-03-13",
+		"sets": 3,
+		"reps": 10,
+		"kgs": 8,
+		"muscle_group": "shoulders"
+	},
+	{
+		"exercise": "Side Plank",
+		"last_updated": "2026-02-13",
+		"sets": 1,
+		"reps": 70,
+		"kgs": 0,
+		"muscle_group": "abs"
+	},
+	{
+		"exercise": "Split Squats",
+		"last_updated": "2026-02-13",
+		"sets": 2,
+		"reps": 10,
+		"kgs": 13,
+		"muscle_group": "legs"
+	},
+	{
+		"exercise": "Standing Calf Raises",
+		"last_updated": "2026-02-13",
+		"sets": 4,
+		"reps": 20,
+		"kgs": 22.5,
+		"muscle_group": "calves"
+	},
+	{
+		"exercise": "Wrist Curls",
+		"last_updated": "2026-02-13",
+		"sets": 4,
+		"reps": 20,
+		"kgs": 11.75,
+		"muscle_group": "forearms"
+	}
+]

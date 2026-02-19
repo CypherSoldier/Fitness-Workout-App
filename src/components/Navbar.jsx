@@ -1,6 +1,6 @@
-import DropDown from './dropdown';
+import DropDown from './Dropdown';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './firebase';
+import { auth } from '../services/firebase';
 import dumbbell from '../assets/dumbbell.svg';
 import { Link } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, BicepsFlexed } from 'lucide-react';
 
 export default function DayFilterSidebar({selectedDay, setSelectedDay,}) {

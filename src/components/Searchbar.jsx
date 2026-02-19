@@ -1,5 +1,3 @@
-//import React, { useState} from 'react';
-
 function SearchBar({ setInputText }) {
     const inputHandler = (e) => {
         const lowerCase = e.target.value.toLowerCase();

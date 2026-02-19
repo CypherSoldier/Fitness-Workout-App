@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import AddExercise from '../components/exercise_form';
-import SavedExe from '../components/exercise_card';
-import SearchBar from '../components/searchbar';
-import DayFilterSidebar from '../components/day_sidebar';
+import { useState, useEffect } from 'react';
+import AddExercise from '../components/ExerciseForm';
+import SavedExe from '../components/ExerciseCard';
+import SearchBar from '../components/Searchbar';
+import DayFilterSidebar from '../components/DaySidebar';
 //import NavBar from './navbar';
 import { Plus } from 'lucide-react';
 

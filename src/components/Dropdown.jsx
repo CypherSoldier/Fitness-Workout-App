@@ -1,4 +1,4 @@
-import { auth } from './firebase.js';
+import { auth } from '../services/firebase';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../hooks/useAuth';
 
@@ -21,7 +21,7 @@ function DropDown({ user }) {
     }
   };
 
-  console.log(user?.displayName)
+  //console.log(user?.displayName)
   
   return (
       <div className="dropdown">
@@ -29,11 +29,11 @@ function DropDown({ user }) {
       <img src={user?.photoURL} alt="profile" referrerPolicy="no-referrer" />
       </button>
       <div className="dropdown-menu">
-        <a className="dropdown-item"><Link to="/CypherSoldier/Profile">My Profile</Link></a>
-        <a className="dropdown-item" onClick={(e) => {
+        <Link to="/CypherSoldier/Profile" className="dropdown-item">My Profile</Link>
+        <button className="dropdown-item"  onClick={(e) => {
             e.preventDefault();     // ← very important – prevents navigation
             handleLogout();
-          }}>Log Out</a>
+          }}>Log Out</button>
       </div>
       </div>
     );

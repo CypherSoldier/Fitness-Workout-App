@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Upload, Dumbbell } from 'lucide-react';
-import { auth } from './firebase';
+import { auth } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 //import { default_image } from './assets'
 

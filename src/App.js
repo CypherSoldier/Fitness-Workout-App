@@ -4,13 +4,12 @@ import './styles/login.css';
 import './styles/saveExe.css';
 import './styles/searchbar.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import LoginPage from './pages/login_page';
-//import useToken from './components/useToken';
-import Body from './pages/dashboard.js';
-import TrendingPage from './pages/trending';
-import ModernSidebar from './components/sidebar';
-import Layout from './components/layout';
-import ProfilePage from './pages/profile'
+import LoginPage from './pages/LoginPage';
+import Body from './pages/Dashboard';
+import TrendingPage from './pages/TrendingPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import Layout from './components/layout/Layout';
+import ProfilePage from './pages/Profile'
 import { useAuth } from './hooks/useAuth';
 
 function App() {
@@ -38,7 +37,7 @@ function App() {
     >
       <Route path="/" element={<Body />} />
       <Route path="/CypherSoldier/Trending" element={<TrendingPage />} />
-      <Route path="/CypherSoldier/Analytics" element={<ModernSidebar />} />
+      <Route path="/CypherSoldier/Analytics" element={<AnalyticsPage />} />
       <Route path="/CypherSoldier/Profile" element={<ProfilePage />} />
       
       {/* Catch-all redirect for logged-in users */}

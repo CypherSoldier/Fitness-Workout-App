@@ -13,13 +13,25 @@ function Body(props) {
   const [inputText, setInputText] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   const [selectedDay, setSelectedDay] = useState("");
+
+  /*
+  useEffect(() => {
+    // Import and use the local JSON file
+    import('../utils/exercises.json')
+      .then(module => {
+        const data = module.default;
+        //const aggregated = processWorkoutData(data);
+        setSavedExercises(data);
+      })
+      .catch(error => console.error('Error loading workout data:', error));
+  }, []);
+  */
   
-  // R*
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
-  }, []); 
+  }, []);
 
   /* T* 
   useEffect(() => {

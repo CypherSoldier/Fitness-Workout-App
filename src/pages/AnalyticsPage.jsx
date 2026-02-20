@@ -73,84 +73,83 @@ function AnalyticsPage() {
   };
 
   return (
-    <div className="flex">
-      {/*<MuscleGroupSidebar
-        groups={MUSCLE_GROUPS}
-        selected={selectedGroup}
+    <div className="flex h-screen bg-gray-950 text-gray-100 overflow-hidden">
+      {/* Sidebar - assuming ModernSidebar is already styled; enhance if needed */}
+      <ModernSidebar 
+        menuItems={menuItems} 
+        selected={selectedGroup} 
         onSelect={setSelectedGroup}
-      /> */}
+      />
 
-      <ModernSidebar menuItems={menuItems} selected={selectedGroup} onSelect={setSelectedGroup}/>
-      <div className="flex-1 p-4">
-        <h2 className="text-2xl mb-4">{selectedGroup} Analytics</h2>
-        
+      <main className="flex-1 overflow-y-auto p-6">
+        <header className="mb-8 bg-gray-950" >
+          <h2 className="text-3xl font-bold text-emerald-400">{selectedGroup} Analytics</h2>
+          <p className="text-gray-400 mt-1">Volume trends, sets distribution & progress insights</p>
+        </header>
+
         {selectedGroup === 'All' ? (
           <>
-          {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-4">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
               <MetricCard 
                 title="Total Volume" 
                 value={`${processedData['All']?.grandTotal?.toFixed(0) || 0} kg`} 
               />
               <MetricCard 
                 title="Total Exercises" 
-                value={`${processedData['All']?.totalExercises || 0} exercises/week`} 
+                value={`${processedData['All']?.totalExercises || 0} exercises`} 
               />
+              {/* Add more metrics as needed, e.g. streak, avg volume delta */}
             </div>
 
-          <div className='h-96 w-full flex'>
-            {/* Overall Volume Trend */}
-            <AnalyticsChart
-              type="pie"
-              title="Total sets per muscle group"
-              data={{
-                labels: processedData['All']?.muscleGroupVolumes.muscle_groups || [],
-                datasets: [{ 
-                  label: 'Sets', 
-                  data: processedData['All']?.muscleGroupVolumes.sets || [], 
-                  backgroundColor: [
-                    'rgb(255, 99, 132)',   // red
-                    'rgb(255, 159, 64)',   // orange
-                    'rgb(255, 205, 86)',   // yellow
-                    'rgb(75, 192, 192)',   // green
-                    'rgb(54, 162, 235)',   // blue
-                    ] 
-                }]
-              }}
-            />
+            {/* Charts - side by side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="h-80">
+                <AnalyticsChart
+                  type="pie"
+                  title="Total Sets per Muscle Group"
+                  data={{
+                    labels: processedData['All']?.muscleGroupVolumes.muscle_groups || [],
+                    datasets: [{ 
+                      label: 'Sets', 
+                      data: processedData['All']?.muscleGroupVolumes.sets || [], 
+                      backgroundColor: [
+                        '#ef4444', '#f59e0b', '#eab308', '#10b981', '#3b82f6', '#8b5cf6'
+                      ],
+                      borderWidth: 1,
+                      borderColor: '#111827'
+                    }]
+                  }}
+                />
+              </div>
 
-            <AnalyticsChart
-              type="pie"
-              title="Total volume per muscle group"
-              data={{
-                labels: processedData['All']?.muscleGroupVolumes.muscle_groups || [],
-                datasets: [{ 
-                  label: 'Volume(kg)', 
-                  data: processedData['All']?.muscleGroupVolumes.volume || [], 
-                  backgroundColor: [
-                    'rgb(255, 99, 132)',   // red
-                    'rgb(255, 159, 64)',   // orange
-                    'rgb(255, 205, 86)',   // yellow
-                    'rgb(75, 192, 192)',   // green
-                    'rgb(54, 162, 235)',   // blue
-                    ] 
-                }]
-              }}
-            />
-          </div>
+              <div className="h-80">
+                <AnalyticsChart
+                  type="pie"
+                  title="Total Volume per Muscle Group (kg)"
+                  data={{
+                    labels: processedData['All']?.muscleGroupVolumes.muscle_groups || [],
+                    datasets: [{ 
+                      label: 'Volume (kg)', 
+                      data: processedData['All']?.muscleGroupVolumes.volume || [], 
+                      backgroundColor: [
+                        '#ef4444', '#f59e0b', '#eab308', '#10b981', '#3b82f6', '#8b5cf6'
+                      ],
+                      borderWidth: 1,
+                      borderColor: '#111827'
+                    }]
+                  }}
+                />
+              </div>
+            </div>
           </>
         ) : (
           <>
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <MetricCard 
-                title="< Placeholder >" 
-                value={'-'} 
-              />
+            {/* Group-specific stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
               <MetricCard 
                 title="Total Sets" 
                 value={`${processedData[selectedGroup]?.sets || 0} sets`} 
-                alert={''} 
               />
               <MetricCard 
                 title="Total Volume" 
@@ -162,49 +161,35 @@ function AnalyticsPage() {
               />
             </div>
 
-            <div className='h-96 w-full flex'>
-              {/* Volume Trend Chart */}
+            {/* Trend chart - full width */}
+            <div className="h-96">
               <AnalyticsChart
-                type="pie"
-                title="Volume Load Trend (Weekly)"s
+                type="line"  // Changed to line → better for trends over time
+                title="Volume Load Trend (Weekly)"
                 data={{
                   labels: processedData[selectedGroup]?.volumeTrend.labels || [],
                   datasets: [{ 
                     label: 'Total Volume (kg)', 
                     data: processedData[selectedGroup]?.volumeTrend.data || [], 
-                    backgroundColor: [
-                      'rgb(255, 99, 132)',   // red
-                      'rgb(255, 159, 64)',   // orange
-                      'rgb(255, 205, 86)',   // yellow
-                      'rgb(75, 192, 192)',   // green
-                      'rgb(54, 162, 235)',   // blue
-                      ]
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    tension: 0.3,
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: '#111827',
+                    pointHoverRadius: 6,
                   }]
-                }} 
-              /> 
+                }}
+              />
             </div>
-            
-            
-            {/* Strength Curve (Line Chart) 
-            <AnalyticsChart
-              type="line"
-              title="Strength Progression (Estimated 1RM)"
-              data={{
-                labels: processedData[selectedGroup]?.strengthTrend.labels || [],
-                datasets: [{ 
-                  label: 'Est. 1RM (kg)', 
-                  data: processedData[selectedGroup]?.strengthTrend.data || [], 
-                  borderColor: 'rgba(54, 162, 235, 1)',
-                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                  fill: true,
-                  tension: 0.4
-                }]
-              }}
-            /> */}
-            
+
+            {/* Bonus: Add space for future AI insights card */}
+            {/* <div className="mt-8 p-6 bg-gray-900/70 rounded-xl border border-gray-800">
+              <h3 className="text-lg font-semibold text-emerald-300 mb-3">AI Insights</h3>
+              <p className="text-gray-300">Coming soon: plateau detection, recovery recommendations...</p>
+            </div> */}
           </>
         )}
-      </div>
+      </main>
     </div>
   );
 }

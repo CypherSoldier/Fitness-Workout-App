@@ -4,9 +4,8 @@ import { auth } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 //import { default_image } from './assets'
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
 const defaultImageURL = 'https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg';
+
 function AddExercise({ handleAddExercise, initialValues }) {
   const [setsValue, setSetsValue] = useState(initialValues?.sets || 0);
   const [repsValue, setRepsValue] = useState(initialValues?.reps || 0);
@@ -15,6 +14,11 @@ function AddExercise({ handleAddExercise, initialValues }) {
   const [nameValue, setNameValue] = useState(initialValues?.name || '');
   const [imageFile, setImageFile] = useState(initialValues?.image || defaultImageURL);
   const [user] = useAuthState(auth);
+  const [dayValue, setDayValue] = useState(initialValues?.day || '')
+  
+  const handleDayChange = (event) => {
+    setDayValue(event.target.value);
+  }
 
   const handleInputChangeSets = (event) => {
     setSetsValue(event.target.value);
@@ -53,7 +57,7 @@ function AddExercise({ handleAddExercise, initialValues }) {
         image: imageFile,
         date: new Date().toLocaleDateString('en-CA'),
         user: user?.displayName,
-        day: days[Math.floor(Math.random() * days.length)]
+        day: dayValue
     };
 
     console.log(newExercise)
@@ -142,6 +146,31 @@ function AddExercise({ handleAddExercise, initialValues }) {
                   <option value="legs">Legs</option>
                   <option value="abs">Abs</option>
                   <option value="isolation">Isolation</option>
+                </select>
+            </div>
+
+            {/* Day Category */}
+            <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Workout Day
+                </label>
+                <select
+                  onChange={handleDayChange}
+                  className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 text-white cursor-pointer"
+                  style={{ 
+                    backgroundColor: '#1e2225',
+                    borderColor: '#3a3f44',
+                    '--tw-ring-color': 'rgba(17,183,122,.5)'
+                  }}
+                >
+                  <option value="">Select workout day</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
                 </select>
             </div>
 

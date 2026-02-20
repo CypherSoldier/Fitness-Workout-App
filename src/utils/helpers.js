@@ -13,8 +13,8 @@ const getWeekKey = (dateString) => {
 const buildUniqueLogs = (data) => {
     const unique = {};
     data.forEach(entry => {
-        if (!unique[entry.exercise] || unique[entry.exercise].last_updated < entry.last_updated) {
-            unique[entry.exercise] = entry;
+        if (!unique[entry.name] || unique[entry.name].last_updated < entry.last_updated) {
+            unique[entry.name] = entry;
         }
     });
       
@@ -25,7 +25,7 @@ const computeMuscleStats = (data) => {
   data.unique_logs = buildUniqueLogs(data.logs);
   data.count = data.unique_logs.length;
   data.totalVolume = data.unique_logs.reduce((sum, entry) => sum + entry.kgs * entry.sets * entry.reps, 0);
-  data.volumeTrend.labels = data.unique_logs.map(entry => entry.exercise);
+  data.volumeTrend.labels = data.unique_logs.map(entry => entry.name);
   data.volumeTrend.data = data.unique_logs.map(entry => entry.kgs * entry.sets * entry.reps);
   data.sets = data.unique_logs.reduce((sum, entry) => sum + entry.sets, 0);
 }; // can be written as ->
@@ -52,16 +52,16 @@ const calculateMetrics = (uniqueLogs) => {
 // Maps exercises to muscle groups
 const buildMuscleMap = (data, map) => {
     data.forEach(entry => {
-      const group = entry.muscle_group.charAt(0).toUpperCase() + entry.muscle_group.slice(1); // "C" + "hest"
-      if (!map[entry.exercise]) {
-        map[entry.exercise] = group;
+      const group = entry.exercise.charAt(0).toUpperCase() + entry.exercise.slice(1); // "C" + "hest"
+      if (!map[entry.name]) {
+        map[entry.name] = group;
       }
     })
 }
 
 const groupByMuscle = (data, map) => {
     data.forEach(entry => {
-      const group = entry.muscle_group.charAt(0).toUpperCase() + entry.muscle_group.slice(1);
+      const group = entry.exercise.charAt(0).toUpperCase() + entry.exercise.slice(1);
       if (map[group]) {
         map[group].logs.push(entry);
       }

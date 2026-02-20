@@ -33,8 +33,6 @@ const ProfilePage = () => {
 
   console.log('Current input data:', inputData);
 
-  
-
   return (
     <div className="min-h-screen bg-[#1e2225] py-8 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl space-y-8">

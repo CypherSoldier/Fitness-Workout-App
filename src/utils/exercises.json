@@ -1,258 +1,387 @@
 [
-	{
-		"exercise": "Barbell Hip Thrusts",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 15,
-		"kgs": 32,
-		"muscle_group": "glutes"
-	},
-	{
-		"exercise": "DB Bench Press",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 16,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "DB Bench Press",
-		"last_updated": "2026-03-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 18,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "DB Bent Over Rows",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 15,
-		"muscle_group": "back"
-	},
-	{
-		"exercise": "DB Bicep Curl",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 9.25,
-		"muscle_group": "biceps"
-	},
-	{
-		"exercise": "DB Fly",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 11,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "DB Pullovers",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 21.5,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "DB Pullovers",
-		"last_updated": "2026-04-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 23,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "DB Single Arm Row",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 22.5,
-		"muscle_group": "back"
-	},
-	{
-		"exercise": "DB Sit Ups",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 20,
-		"kgs": 10,
-		"muscle_group": "abs"
-	},
-	{
-		"exercise": "DB T-Bar Row",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 8,
-		"kgs": 34,
-		"muscle_group": "back"
-	},
-	{
-		"exercise": "DB T-Bar Row",
-		"last_updated": "2026-03-13",
-		"sets": 2,
-		"reps": 8,
-		"kgs": 36,
-		"muscle_group": "back"
-	},
-	{
-		"exercise": "Drag Curls",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 27.5,
-		"muscle_group": "biceps"
-	},
-	{
-		"exercise": "Drag Curls",
-		"last_updated": "2026-04-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 29.5,
-		"muscle_group": "biceps"
-	},
-	{
-		"exercise": "French Press",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 8,
-		"kgs": 18,
-		"muscle_group": "triceps"
-	},
-	{
-		"exercise": "Front Squat",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 28.5,
-		"muscle_group": "legs"
-	},
-	{
-		"exercise": "Hammer Curls",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 10,
-		"muscle_group": "biceps"
-	},
-	{
-		"exercise": "Hammer Curls",
-		"last_updated": "2026-03-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 12,
-		"muscle_group": "biceps"
-	},
-	{
-		"exercise": "Hex Press",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 13.5,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "Hex Press",
-		"last_updated": "2026-03-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 15,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "Incline DB Bench Press",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 12.5,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "Incline DB Bench Press",
-		"last_updated": "2026-04-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 14,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "Incline DB Bench Press",
-		"last_updated": "2026-06-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 16,
-		"muscle_group": "chest"
-	},
-	{
-		"exercise": "Lateral Raise",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 6.5,
-		"muscle_group": "shoulders"
-	},
-	{
-		"exercise": "Romanian Deadlifts",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 22.5,
-		"muscle_group": "legs"
-	},
-	{
-		"exercise": "Seated Overhead DB Press",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 10,
-		"muscle_group": "shoulders"
-	},
-	{
-		"exercise": "Seated Reverse Fly",
-		"last_updated": "2026-02-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 7,
-		"muscle_group": "shoulders"
-	},
-	{
-		"exercise": "Seated Reverse Fly",
-		"last_updated": "2026-03-13",
-		"sets": 3,
-		"reps": 10,
-		"kgs": 8,
-		"muscle_group": "shoulders"
-	},
-	{
-		"exercise": "Side Plank",
-		"last_updated": "2026-02-13",
-		"sets": 1,
-		"reps": 70,
-		"kgs": 0,
-		"muscle_group": "abs"
-	},
-	{
-		"exercise": "Split Squats",
-		"last_updated": "2026-02-13",
-		"sets": 2,
-		"reps": 10,
-		"kgs": 13,
-		"muscle_group": "legs"
-	},
-	{
-		"exercise": "Standing Calf Raises",
-		"last_updated": "2026-02-13",
-		"sets": 4,
-		"reps": 20,
-		"kgs": 22.5,
-		"muscle_group": "calves"
-	},
-	{
-		"exercise": "Wrist Curls",
-		"last_updated": "2026-02-13",
-		"sets": 4,
-		"reps": 20,
-		"kgs": 11.75,
-		"muscle_group": "forearms"
-	}
+  {
+    "name": "Barbell Bench Press",
+    "sets": 3,
+    "reps": 10,
+    "kgs": 38.5,
+    "exercise": "chest",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "DB Bent Over Rows",
+    "sets": 3,
+    "reps": 10,
+    "kgs": 42,
+    "exercise": "back",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "Incline DB Bench Press",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 16.5,
+    "exercise": "chest",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "DB Pullovers",
+    "sets": 2,
+    "reps": 10,
+    "kgs": 25,
+    "exercise": "back",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "Seated Overhead DB Press",
+    "sets": 2,
+    "reps": 10,
+    "kgs": 13.5,
+    "exercise": "shoulders",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "DB Bicep Curl",
+    "sets": 3,
+    "reps": 10,
+    "kgs": 10,
+    "exercise": "biceps",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "Lateral Raise",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 8,
+    "exercise": "shoulders",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "Hex Press",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 16,
+    "exercise": "chest",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  },
+  {
+    "name": "Back Squat",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 41,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Romanian Deadlifts",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 58,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Lunges",
+    "sets": 2,
+    "reps": 6,
+    "kgs": 18.5,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Standing Calf Raises",
+    "sets": 4,
+    "reps": 20,
+    "kgs": 54,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Wrist Curls",
+    "sets": 4,
+    "reps": 15,
+    "kgs": 13.5,
+    "exercise": "isolation",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Leg Extensions",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 30,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "DB Sit Ups",
+    "sets": 3,
+    "reps": 20,
+    "kgs": 15,
+    "exercise": "abs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Leg Raises",
+    "sets": 2,
+    "reps": 10,
+    "kgs": 0,
+    "exercise": "abs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Wednesday"
+  },
+  {
+    "name": "Single Arm Rows",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 22,
+    "exercise": "back",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Incline Bench Press",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 15,
+    "exercise": "chest",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Incline Chest Rows",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 15,
+    "exercise": "back",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "DB Fly",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 13,
+    "exercise": "chest",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Seated Reverse Fly",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 8.5,
+    "exercise": "shoulders",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Drag Curls",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 35,
+    "exercise": "biceps",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "French Press",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 20,
+    "exercise": "triceps",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Hammer Curls",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 11,
+    "exercise": "biceps",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Friday"
+  },
+  {
+    "name": "Split Squats",
+    "sets": 3,
+    "reps": 8,
+    "kgs": 15,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Romanian Deadlifts",
+    "sets": 2,
+    "reps": 8,
+    "kgs": 58,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Barbell Hip Thrusts",
+    "sets": 2,
+    "reps": 15,
+    "kgs": 44,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Standing Calf Raises",
+    "sets": 4,
+    "reps": 15,
+    "kgs": 54,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Wrist Curls",
+    "sets": 4,
+    "reps": 15,
+    "kgs": 13.5,
+    "exercise": "isolation",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Leg Extensions",
+    "sets": 3,
+    "reps": 10,
+    "kgs": 30,
+    "exercise": "legs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Side Plank",
+    "sets": 1,
+    "reps": 1,
+    "kgs": 0,
+    "exercise": "abs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Side Crunches",
+    "sets": 3,
+    "reps": 15,
+    "kgs": 26,
+    "exercise": "abs",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Neck Training",
+    "sets": 4,
+    "reps": 20,
+    "kgs": 13.5,
+    "exercise": "isolation",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Dips",
+    "sets": 4,
+    "reps": 5,
+    "kgs": 0,
+    "exercise": "triceps",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Sunday"
+  },
+  {
+    "name": "Pull Ups",
+    "sets": 4,
+    "reps": 5,
+    "kgs": 0,
+    "exercise": "back",
+    "image": "https://static.vecteezy.com/system/resources/previews/015/159/229/non_2x/steel-dumbbell-icon-simple-active-workout-vector.jpg",
+    "date": "2026-02-19",
+    "user": "Caleb Wagner",
+    "day": "Monday"
+  }
 ]

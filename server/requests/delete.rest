@@ -1,1 +1,1 @@
-DELETE http://localhost:5001/698af9addb9ee0b831a0f3ad
+DELETE http://localhost:5001/exercises/69da69824d0a2a3eb4851d55

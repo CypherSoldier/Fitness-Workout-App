@@ -36,7 +36,7 @@ function LoginPage() {
 
     try {
       const response = await fetch(
-        isSignUpMode ? 'http://localhost:5001/register' : 'http://localhost:5001/login', 
+        isSignUpMode ? `${process.env.REACT_APP_API_BASE}/register` : `${process.env.REACT_APP_API_BASE}/login`, 
         {
           method: 'POST',
           headers: {

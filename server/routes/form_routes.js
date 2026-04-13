@@ -4,6 +4,6 @@ const { submitExercise, retrieveExercise, deleteExercise } = require('../control
 
 router.get('/exercises', retrieveExercise)
 router.post('/submit', submitExercise)
-router.delete('/:id', deleteExercise)
+router.delete('/exercises/:id', deleteExercise)
 
 module.exports = router

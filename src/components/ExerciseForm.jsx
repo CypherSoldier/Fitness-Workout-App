@@ -63,25 +63,14 @@ function AddExercise({ handleAddExercise, initialValues }) {
     console.log(newExercise)
 
     try {
-      /*
-        await fetch('http://localhost:5000/submit', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        */
-        // sends the data to express backend
-        // Revive
-        /*
-        await fetch('http://localhost:5000/submit', {
+        await fetch(`${process.env.REACT_APP_API_BASE}/submit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(newExercise),
         });
-        */
+
         
         // const response = await axios.post('http://localhost:3000/submit', newExercise);
         

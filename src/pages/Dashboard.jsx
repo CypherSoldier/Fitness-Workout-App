@@ -3,8 +3,8 @@ import AddExercise from '../components/ExerciseForm';
 import SavedExe from '../components/ExerciseCard';
 import SearchBar from '../components/Searchbar';
 import DayFilterSidebar from '../components/DaySidebar';
-//import NavBar from './navbar';
 import { Plus } from 'lucide-react';
+import axios from 'axios'
 
 // Anything marked with 'R*' is temporarily disabled/modified -> counterpart is 'T*'
 function Body(props) {
@@ -27,15 +27,15 @@ function Body(props) {
   }, []);
   */
   
+  /*
   useEffect(() => {
     const exercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     console.log('Retrieved from storage:', exercisesFromStorage);
     setSavedExercises(exercisesFromStorage);
-  }, []);
+  }, []); */
 
-  /* T* 
   useEffect(() => {
-      axios.get('http://localhost:5000/exercises')
+      axios.get(`${process.env.REACT_APP_API_BASE}/exercises`)
         .then(response => {
           setSavedExercises(response.data)
         })
@@ -43,7 +43,6 @@ function Body(props) {
           console.error('There was an error fetching the items!', error);
         });
   }, []);
-  */
 
   const handleAddExercise = (newExercise) => {
     setSavedExercises((prevExercises) => {
@@ -54,18 +53,19 @@ function Body(props) {
     setShowForm(false);
   };
 
-  // R*
+  /*
   const handleDeleteExercise = (index) => {
     setSavedExercises((prevExercises) => {
       const updatedExercises = prevExercises.filter((_, i) => i !== index);
       localStorage.setItem('savedExercises', JSON.stringify(updatedExercises)); // Step 2 fix
       return updatedExercises;
     });
-  };
+  }; */
 
-  /* T*
+
   const handleDeleteExercise = (id) => {
-    axios.delete(`http://localhost:5000/${id}`)
+    console.log(id)
+    axios.delete(`${process.env.REACT_APP_API_BASE}/exercises/${id}`)
       .then(() => {
         setSavedExercises(prev =>
           prev.filter(exercise => exercise._id !== id)
@@ -75,12 +75,12 @@ function Body(props) {
         console.error(error);
     });
   };
-  */
+
 
   const filteredData = savedExercises.filter((el) => {
     const nameMatch = props.input === '' || el.exercise.toLowerCase().includes(inputText.toLowerCase());
 
-    const dayMatch = !selectedDay || el.day === selectedDay; // ← assumes your data has "day" field
+    const dayMatch = !selectedDay || el.day === selectedDay;
 
     return nameMatch && dayMatch;
   })
@@ -144,7 +144,7 @@ function Main({ showForm, handleAddExercise, setShowForm, savedExercises, onDele
             filteredData.map((item, index) => (
                 <SavedExe key={index} 
                 savedExercises={[item]} 
-                onDeleteExercise={() => onDeleteExercise(index)} 
+                onDeleteExercise={() => onDeleteExercise(item._id)} 
                 onEditExercise={() => onEditExercise(index)} />
             ))
         )}

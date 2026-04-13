@@ -93,7 +93,7 @@ function SavedExe({ savedExercises, onDeleteExercise, onEditExercise }) {
                     <span>Edit</span>
                   </button>
                   <button
-                    onClick={() => deleteExercise(index)}
+                    onClick={() => deleteExercise(exercise._id)}
                     className="flex items-center justify-center px-4 py-2.5 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90"
                     style={{ backgroundColor: 'rgba(173, 17, 17, 0.67)' }}
                   >

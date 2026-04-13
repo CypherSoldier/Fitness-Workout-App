@@ -26,6 +26,7 @@ function AnalyticsPage() {
 
   useEffect(() => {
     // Import and use the local JSON file
+    // Sample data
     import('../utils/exercises.json')
       .then(module => {
         const data = module.default;

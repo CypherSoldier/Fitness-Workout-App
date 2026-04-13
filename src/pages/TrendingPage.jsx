@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 function TrendingPage() {
   const [urls, setUrls] = useState([]);
 
-  const handleNewQuote = async () => {
+  const handleNewVideo = async () => {
     const response = await fetch(process.env.REACT_APP_GOOGLE_API);
     const data = await response.json();
     console.log(data);
@@ -26,7 +26,7 @@ function TrendingPage() {
   };
 
   useEffect(() => {
-    handleNewQuote();
+    handleNewVideo();
   }, []);
 
   return (
@@ -46,10 +46,10 @@ function TrendingPage() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            🔥 Trending Workouts
+            🔥 Trending Fitness
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#9ca3af' }}>
-            Discover the most popular workouts this week
+            Discover the most popular sports videos this week
           </p>
         </header>
       </div>

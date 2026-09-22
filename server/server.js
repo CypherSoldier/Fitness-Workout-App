@@ -36,6 +36,10 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.status(200).send('Server is up and running');
+});
+
 app.use('/', require('./routes/form_routes'));
 app.use('/', require('./routes/user_routes'));
 

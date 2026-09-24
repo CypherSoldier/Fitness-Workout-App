@@ -1,84 +1,98 @@
-import { useState } from 'react';
-import { Menu, X, BicepsFlexed } from 'lucide-react';
+import {
+  Activity,
+  BarChart3,
+  ChevronRight,
+  LayoutDashboard,
+  LogOut,
+  TrendingUp,
+  UserRound,
+  X,
+} from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
-export default function DayFilterSidebar({selectedDay, setSelectedDay,}) {
-  const [isOpen, setIsOpen] = useState(true);
+const links = [
+  { label: "Dashboard", path: "/", icon: LayoutDashboard },
+  { label: "Progress", path: "/CypherSoldier/Trending", icon: TrendingUp },
+  { label: "Activity", path: "/CypherSoldier/Analytics", icon: BarChart3 },
+];
 
-  const DAYS = [
-    { short: 'Mon', full: 'Monday', icon: BicepsFlexed},
-    { short: 'Tue', full: 'Tuesday', icon: BicepsFlexed},
-    { short: 'Wed', full: 'Wednesday', icon: BicepsFlexed},
-    { short: 'Thu', full: 'Thursday', icon: BicepsFlexed},
-    { short: 'Fri', full: 'Friday', icon: BicepsFlexed},
-    { short: 'Sat', full: 'Saturday', icon: BicepsFlexed},
-    { short: 'Sun', full: 'Sunday', icon: BicepsFlexed},
-    { short: 'All', full: 'All Days', icon: BicepsFlexed},
-  ];
-
-  return (
-    <div className="flex h-screen" style={{ backgroundColor: '#1e2225' }}>
-      {/* Sidebar */}
-      <div
-        className={`relative flex flex-col transition-all duration-300 ease-in-out ${
-          isOpen ? 'w-64' : 'w-20'
-        }`}
-        style={{ backgroundColor: '#282c30' }}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: '#3a3f44' }}>
-          <div className={`flex items-center gap-3 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
-          </div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            {isOpen ? <X size={20} className="text-gray-400" /> : <Menu size={20} className="text-gray-400" />}
-          </button>
-        </div>
-
-        {/* Menu Items */}
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {DAYS.map((item) => {
-            const Icon = item.icon;
-            const isActive = (item.short === 'All' && selectedDay === '') || selectedDay === item.full;
-            
-            return (
-              <button
-                key={item.short}
-                onClick={() => setSelectedDay(item.short === 'All' ? '' : item.full)}
-                className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 relative group ${
-                  isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-400 hover:bg-gray-700 hover:text-white'
-                }`}
-              >
-                <Icon size={22} className="flex-shrink-0" />
-                <span
-                  className={`transition-opacity duration-300 whitespace-nowrap ${
-                    isOpen ? 'opacity-100' : 'opacity-0 w-0'
-                  }`}
-                >
-                  {item.full}
-                </span>
-                {item.badge && (
-                  <span
-                    className={`ml-auto bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center transition-opacity duration-300 ${
-                      isOpen ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    {item.badge}
-                  </span>
-                )}
-                {!isOpen && item.badge && (
-                  <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
-                )}
-              </button>
-            );
-          })}
-        </nav>
-
+function DaySidebar({ sidebarOpen, setSidebarOpen }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const initials = (user?.displayName || user?.email || "JD")
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  const signOut = async () => {
+    await logout();
+    navigate("/login", { replace: true });
+  };
   
+  return (
+    <aside
+      className={`fixed inset-y-0 left-0 z-20 flex w-[232px] -translate-x-full flex-col border-r border-[#353d42] bg-[#1e2327] transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : ""}`}
+    >
+      <div className="flex h-[84px] items-center justify-between border-b border-[#353d42] px-6">
+        <div className="grid size-10 place-items-center rounded-xl bg-[#2f6af2] text-white shadow-lg shadow-blue-900/30">
+          <Activity size={22} strokeWidth={2.5} />
+        </div>
+        <button
+          className="p-2 text-[#aab5bb] lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+          aria-label="Close navigation"
+        >
+          <X size={20} />
+        </button>
       </div>
-    </div>
+      <nav className="grid gap-1.5 p-4" aria-label="Primary navigation">
+        {links.map(({ label, path, icon: Icon }) => (
+          <Link
+            key={label}
+            to={path}
+            onClick={() => setSidebarOpen(false)}
+            className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition ${location.pathname === path ? "bg-[#2f6af2] text-white shadow-lg shadow-blue-900/20" : "text-[#a1abb2] hover:bg-white/5 hover:text-white"}`}
+          >
+            <Icon size={19} />
+            <span>{label}</span>
+          </Link>
+        ))}
+        <Link
+          to="/CypherSoldier/Profile"
+          onClick={() => setSidebarOpen(false)}
+          className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition ${location.pathname === "/CypherSoldier/Profile" ? "bg-[#2f6af2] text-white" : "text-[#a1abb2] hover:bg-white/5 hover:text-white"}`}
+        >
+          <UserRound size={19} />
+          <span>Profile</span>
+        </Link>
+      </nav>
+      <div className="mt-auto border-t border-[#353d42] p-4">
+        <button
+          onClick={signOut}
+          className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm text-[#a1abb2] hover:bg-white/5 hover:text-white"
+        >
+          <LogOut size={19} /> Sign out
+        </button>
+        <Link
+          to="/CypherSoldier/Profile"
+          className="mt-3 flex items-center gap-3 border-t border-[#353d42] px-2 pt-4"
+        >
+          <span className="grid size-8 place-items-center rounded-full bg-[#3b4650] text-[10px] font-bold text-white">
+            {initials}
+          </span>
+          <span className="min-w-0 flex-1">
+            <strong className="block truncate text-xs text-white">
+              {user?.displayName || "Jordan Davis"}
+            </strong>
+            <small className="text-[10px] text-[#89949c]">Free member</small>
+          </span>
+          <ChevronRight size={16} className="text-[#89949c]" />
+        </Link>
+      </div>
+    </aside>
   );
 }
+export default DaySidebar;

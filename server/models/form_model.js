@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 const formSchema = new mongoose.Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId },
+  user_id: { type: String, required: true, index: true },
   name: String,
   sets: Number,
   reps: Number,
@@ -10,7 +10,7 @@ const formSchema = new mongoose.Schema({
   image: String,
   date: Date,
   user: String,
-  day: String
+  day: String,
 });
 
-module.exports = mongoose.model('Form', formSchema)
+module.exports = mongoose.model("Form", formSchema);

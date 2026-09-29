@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Upload, Dumbbell } from "lucide-react";
 import { auth } from "../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { getApiAuthHeaders } from "../services/apiAuth";
 //import { default_image } from './assets'
 
 const defaultImageURL =
@@ -68,17 +69,21 @@ function AddExercise({ handleAddExercise, initialValues }) {
     console.log(newExercise);
 
     try {
-      await fetch(`${process.env.REACT_APP_API_BASE}/submit`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          ...(await getApiAuthHeaders()),
         },
         body: JSON.stringify(newExercise),
       });
 
-      // const response = await axios.post('http://localhost:3000/submit', newExercise);
+      const savedExercise = await response.json();
+      if (!response.ok) {
+        throw new Error(savedExercise.message || "Unable to save exercise");
+      }
 
-      handleAddExercise(newExercise);
+      handleAddExercise(savedExercise);
 
       // Clear form
       setNameValue("");

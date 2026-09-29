@@ -1,0 +1,12 @@
+POST http://localhost:5001/generate
+Content-Type: application/json
+
+{
+  "user_id": "6aba0d0d91361ab6c2da9941",
+  "goal": "Build muscle",
+  "height": "180 cm",
+  "weight": "80 kg",
+  "current_workout": "Beginner full-body workouts",
+  "workout_frequency": 3,
+  "durationMinutes": 60
+}

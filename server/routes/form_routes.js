@@ -1,9 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const { submitExercise, retrieveExercise, deleteExercise } = require('../controllers/form_controller')
+const express = require("express");
+const router = express.Router();
+const {
+  submitExercise,
+  retrieveExercise,
+  updateExercise,
+  deleteExercise,
+} = require("../controllers/form_controller");
+const validateToken = require("../middleware/validateTokenHandler");
 
-router.get('/exercises', retrieveExercise)
-router.post('/submit', submitExercise)
-router.delete('/exercises/:id', deleteExercise)
+router.get("/exercises", validateToken, retrieveExercise);
+router.post("/submit", validateToken, submitExercise);
+router.put("/exercises/:id", validateToken, updateExercise);
+router.delete("/exercises/:id", validateToken, deleteExercise);
 
-module.exports = router
+module.exports = router;

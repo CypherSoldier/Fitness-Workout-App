@@ -8,6 +8,8 @@ const exerciseSchema = new mongoose.Schema(
     restTime: { type: Number, default: 0 },
     kgs: { type: Number, default: 0 },
     time: { type: String, default: "" },
+    day: { type: String, default: "Monday" },
+    focus: { type: String, default: "TRAINING" },
   },
   { _id: false },
 );
@@ -23,6 +25,8 @@ const workoutSchema = new mongoose.Schema(
     workout_frequency: { type: Number, required: true },
     durationMinutes: Number,
     exercises: { type: [exerciseSchema], required: true },
+    whyThisPlan: { type: String, default: "" },
+    whyTitle: { type: String, default: "Designed around your goals" },
     source: { type: String, default: "ai-generated" },
     sourceDocumentIds: [{ type: mongoose.Schema.Types.ObjectId }],
   },

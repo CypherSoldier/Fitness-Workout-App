@@ -11,7 +11,7 @@ function WorkoutCard({ exercise, onDelete, onEdit }) {
   const category = exercise.exercise
     ? `${exercise.exercise.charAt(0).toUpperCase()}${exercise.exercise.slice(1)}`
     : "Other";
-    
+
   return (
     <article className="overflow-hidden rounded-[14px] border border-[#353d42] bg-[#22272b] transition hover:-translate-y-1 hover:border-[#53626b]">
       <div className="relative grid h-32 place-items-center bg-[#f2f5f5]">

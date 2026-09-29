@@ -10,7 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler // optional for area fill
+  Filler, // optional for area fill
 } from "chart.js";
 
 ChartJS.register(
@@ -23,7 +23,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
 );
 
 function AnalyticsChart({ type, title, data }) {
@@ -32,60 +32,70 @@ function AnalyticsChart({ type, title, data }) {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        position: "top",
         labels: {
-          color: '#e5e7eb', // gray-200
-          font: { size: 13, weight: '500' }
-        }
+          color: "#e5e7eb", // gray-200
+          font: { size: 13, weight: "500" },
+        },
       },
       title: {
         display: true,
         text: title,
-        color: '#f3f4f6', // gray-100
-        font: { size: 16, weight: '600' },
-        padding: { top: 10, bottom: 20 }
+        color: "#f3f4f6", // gray-100
+        font: { size: 16, weight: "600" },
+        padding: { top: 10, bottom: 20 },
       },
       tooltip: {
-        backgroundColor: 'rgba(17, 24, 39, 0.95)', // gray-900 with opacity
-        titleColor: '#fff',
-        bodyColor: '#d1d5db',
-        borderColor: '#374151',
+        backgroundColor: "rgba(17, 24, 39, 0.95)", // gray-900 with opacity
+        titleColor: "#fff",
+        bodyColor: "#d1d5db",
+        borderColor: "#374151",
         borderWidth: 1,
-        cornerRadius: 8
-      }
-    },
-    scales: type === 'line' ? {
-      x: {
-        grid: { color: '#1f2937' }, // gray-800
-        ticks: { color: '#9ca3af' } // gray-400
+        cornerRadius: 8,
       },
-      y: {
-        grid: { color: '#1f2937' },
-        ticks: { color: '#9ca3af' }
-      }
-    } : undefined,
+    },
+    scales:
+      type === "line"
+        ? {
+            x: {
+              grid: { color: "#1f2937" }, // gray-800
+              ticks: { color: "#9ca3af" }, // gray-400
+            },
+            y: {
+              grid: { color: "#1f2937" },
+              ticks: { color: "#9ca3af" },
+            },
+          }
+        : undefined,
   };
 
   // Enhance pie chart with better spacing & cutout
-  if (type === 'pie') {
-    baseOptions.cutout = '60%';
-    baseOptions.plugins.legend.position = 'right';
+  if (type === "pie") {
+    baseOptions.cutout = "60%";
+    baseOptions.plugins.legend.position = "right";
   }
 
   // Example: add subtle fill to line charts
-  const enhancedData = type === 'line' ? {
-    ...data,
-    datasets: data.datasets.map(ds => ({
-      ...ds,
-      tension: 0.3,
-      fill: true,
-      backgroundColor: ds.backgroundColor ? ds.backgroundColor.replace('rgb', 'rgba').replace(')', ', 0.15)') : undefined,
-    }))
-  } : data;
+  const enhancedData =
+    type === "line"
+      ? {
+          ...data,
+          datasets: data.datasets.map((ds) => ({
+            ...ds,
+            tension: 0.3,
+            fill: true,
+            backgroundColor: ds.backgroundColor
+              ? ds.backgroundColor
+                  .replace("rgb", "rgba")
+                  .replace(")", ", 0.15)")
+              : undefined,
+          })),
+        }
+      : data;
 
   return (
     <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 shadow-inner h-full">
-      {type === 'pie' ? (
+      {type === "pie" ? (
         <Pie options={baseOptions} data={enhancedData} />
       ) : (
         <Line options={baseOptions} data={enhancedData} />

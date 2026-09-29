@@ -4,6 +4,7 @@ import {
   ChevronRight,
   LayoutDashboard,
   LogOut,
+  Sparkles,
   TrendingUp,
   UserRound,
   X,
@@ -15,6 +16,7 @@ const links = [
   { label: "Dashboard", path: "/", icon: LayoutDashboard },
   { label: "Progress", path: "/CypherSoldier/Trending", icon: TrendingUp },
   { label: "Activity", path: "/CypherSoldier/Analytics", icon: BarChart3 },
+  { label: "Generate Workout", path: "/workouts/generate", icon: Sparkles },
 ];
 
 function DaySidebar({ sidebarOpen, setSidebarOpen }) {
@@ -31,7 +33,7 @@ function DaySidebar({ sidebarOpen, setSidebarOpen }) {
     await logout();
     navigate("/login", { replace: true });
   };
-  
+
   return (
     <aside
       className={`fixed inset-y-0 left-0 z-20 flex w-[232px] -translate-x-full flex-col border-r border-[#353d42] bg-[#1e2327] transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : ""}`}
@@ -54,7 +56,7 @@ function DaySidebar({ sidebarOpen, setSidebarOpen }) {
             key={label}
             to={path}
             onClick={() => setSidebarOpen(false)}
-            className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition ${location.pathname === path ? "bg-[#2f6af2] text-white shadow-lg shadow-blue-900/20" : "text-[#a1abb2] hover:bg-white/5 hover:text-white"}`}
+            className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition ${location.pathname === path || (path === "/workouts/generate" && location.pathname.startsWith(path)) ? "bg-[#2f6af2] text-white shadow-lg shadow-blue-900/20" : "text-[#a1abb2] hover:bg-white/5 hover:text-white"}`}
           >
             <Icon size={19} />
             <span>{label}</span>

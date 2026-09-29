@@ -24,11 +24,11 @@ app.listen(port, () => {
 module.exports = app
 */
 // server.js
-var express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
-var connectDB = require('./config/db');
-const dotenv = require('dotenv').config();
+var express = require("express");
+var bodyParser = require("body-parser");
+var cors = require("cors");
+var connectDB = require("./config/db");
+const dotenv = require("dotenv").config();
 
 var app = express();
 const port = process.env.PORT || 5000;
@@ -36,12 +36,13 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.status(200).send('Server is up and running');
+app.get("/", (req, res) => {
+  res.status(200).send("Server is up and running");
 });
 
-app.use('/', require('./routes/form_routes'));
-app.use('/', require('./routes/user_routes'));
+app.use("/", require("./routes/form_routes"));
+app.use("/", require("./routes/user_routes"));
+app.use("/api/workouts", require("./routes/workout_routes"));
 
 if (require.main === module) {
   connectDB();

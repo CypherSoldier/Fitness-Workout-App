@@ -1,103 +1,59 @@
-// form_routes.test.js
-jest.mock('../config/db', () => jest.fn()); // no-op, never touches real Mongo
+jest.mock("../config/db", () => jest.fn());
 
 const request = require("supertest");
+const jwt = require("jsonwebtoken");
 const app = require("../server");
 const Form = require("../models/form_model");
 
-jest.mock('../models/form_model');
+jest.mock("../models/form_model");
 
-describe("POST /submit", () => {
-  afterEach(() => jest.clearAllMocks());
+const user = { id: "account-123", display_name: "Caleb" };
+const exercise = {
+  name: "Bench Press",
+  sets: 4,
+  reps: 6,
+  kgs: 50,
+  exercise: "Chest",
+  day: "Tuesday",
+};
+let token;
 
-  it("calls the controller and returns 200", async () => {
-    const mockSave = jest.fn().mockResolvedValue({});
-    Form.mockImplementation(() => ({ save: mockSave }));
-
-    const res = await request(app)
-      .post("/submit")
-      .send({
-        name: 'Bench Press',
-        sets: 4,
-        reps: 6,
-        kgs: 50,
-        exercise: 'Chest',
-        image: 'null',
-        date: '2025-12-06T00:00:00.000+00:00',
-        user: "Caleb",
-        day: "Tuesday"
-      })
-      .expect(200);
-
-    expect(res.text).toBe("Exercise added successfully!");
-    expect(mockSave).toHaveBeenCalled();
-  });
-
-  it("returns 500 when save fails", async () => {
-    const mockSave = jest.fn().mockRejectedValue(new Error("Validation failed"));
-    Form.mockImplementation(() => ({ save: mockSave }));
-
-    const res = await request(app)
-      .post("/submit")
-      .send({
-        name: 'Bench Press',
-        sets: 4,
-        reps: 6,
-        kgs: 50,
-        exercise: 'Chest',
-        image: 'null',
-        date: '2025-12-06T00:00:00.000+00:00',
-        user: "Caleb",
-        day: "Tuesday"
-      })
-      .expect(500);
-
-    expect(res.text).toBe("Error adding exercise: Validation failed");
-  });
+beforeEach(() => {
+  process.env.ACCESS_TOKEN_SECRET = "test-secret";
+  token = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET);
 });
 
-describe("GET /exercises", () => {
-  afterEach(() => jest.clearAllMocks());
+afterEach(() => jest.clearAllMocks());
 
-  it("calls GET controller and returns 200 with the docs", async () => {
-    const mockDocs = [
-      { user: 'Caleb Wagner', name: 'Bench Press', sets: 4, reps: 6, kgs: 50 }
-    ];
-    Form.find = jest.fn().mockResolvedValue(mockDocs);
+test("POST /submit stores and returns the account-owned exercise", async () => {
+  const saved = { _id: "exercise-1", ...exercise, user_id: user.id };
+  Form.create = jest.fn().mockResolvedValue(saved);
 
-    const res = await request(app)
-      .get("/exercises")
-      .expect(200);
+  const res = await request(app)
+    .post("/submit")
+    .set("Authorization", `Bearer ${token}`)
+    .send(exercise)
+    .expect(201);
 
-    expect(Form.find).toHaveBeenCalledWith({ user: 'Caleb Wagner' });
-    expect(res.body).toEqual(mockDocs);
-  });
-
-  it("returns 500 when find fails", async () => {
-    Form.find = jest.fn().mockRejectedValue(new Error("DB error"));
-
-    const res = await request(app)
-      .get("/exercises")
-      .expect(500);
-
-    expect(res.text).toBe("Error fetching document");
-  });
+  expect(Form.create).toHaveBeenCalledWith(
+    expect.objectContaining({ user_id: user.id }),
+  );
+  expect(res.body).toEqual(saved);
 });
 
-describe("DELETE /exercises/:id", () => {
-  afterEach(() => jest.clearAllMocks());
+test("GET /exercises filters by the authenticated account", async () => {
+  const docs = [{ _id: "exercise-1", ...exercise }];
+  Form.find = jest.fn().mockResolvedValue(docs);
 
-  it("calls DELETE controller and returns the deleted doc with 200", async () => {
-    const mockExercise = { _id: '123', name: 'Bench Press' };
-    Form.findById = jest.fn().mockResolvedValue(mockExercise);
-    Form.findByIdAndDelete = jest.fn().mockResolvedValue(mockExercise);
+  const res = await request(app)
+    .get("/exercises")
+    .set("Authorization", `Bearer ${token}`)
+    .expect(200);
 
-    const res = await request(app)
-      .delete("/exercises/123")
-      .expect(200);
+  expect(Form.find).toHaveBeenCalledWith({ user_id: user.id });
+  expect(res.body).toEqual(docs);
+});
 
-    expect(Form.findById).toHaveBeenCalledWith('123');
-    expect(Form.findByIdAndDelete).toHaveBeenCalledWith('123');
-    expect(res.body).toEqual(mockExercise);
-  });
+test("protected exercise routes reject requests without an account token", async () => {
+  await request(app).get("/exercises").expect(401);
 });

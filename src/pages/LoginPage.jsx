@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { auth, googleProvider } from '../services/firebase';
-import { signInWithPopup } from 'firebase/auth';
-import { useAuth } from '../hooks/useAuth';
+import { useState } from "react";
+import { auth, googleProvider } from "../services/firebase";
+import { signInWithPopup } from "firebase/auth";
+import { useAuth } from "../hooks/useAuth";
 
 function LoginPage() {
   const { loginWithJWT } = useAuth();
-  
+
   const [isSignUpMode, setIsSignUpMode] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [displayName, setDisplayName] = useState('');
+  const [displayName, setDisplayName] = useState("");
 
   // Firebase Google Sign-In
   const signInWithGoogle = async (e) => {
@@ -18,7 +18,7 @@ function LoginPage() {
     try {
       await signInWithPopup(auth, googleProvider);
       // useAuth hook will automatically detect Firebase user
-      window.location.href = '/';
+      window.location.href = "/";
     } catch (err) {
       console.error("Google sign-in error:", err);
       setError(err.message);
@@ -29,42 +29,47 @@ function LoginPage() {
   const createAccount = async (event) => {
     event.preventDefault();
     setError(null);
-    
-    const payload = isSignUpMode 
+
+    const payload = isSignUpMode
       ? { display_name: displayName, email, password }
       : { email, password };
 
     try {
       const response = await fetch(
-        isSignUpMode ? `${process.env.REACT_APP_API_BASE}/register` : `${process.env.REACT_APP_API_BASE}/login`, 
+        isSignUpMode
+          ? `${process.env.REACT_APP_API_BASE}/register`
+          : `${process.env.REACT_APP_API_BASE}/login`,
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(payload),
-        }
+        },
       );
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Request failed');
+        throw new Error(data.message || "Request failed");
       }
 
       if (isSignUpMode) {
-        console.log('Account created:', data);
+        console.log("Account created:", data);
         setIsSignUpMode(false);
-        setError('Account created! Please sign in.');
+        setError("Account created! Please sign in.");
       } else {
         // Login with JWT through the hook
         loginWithJWT(data.accessToken);
-        console.log('Logged in successfully');
+        console.log("Logged in successfully");
         // No need for window.location.href - useAuth will handle the state change
-        window.location.href = '/';
+        window.location.href = "/";
       }
     } catch (err) {
-      console.error(isSignUpMode ? 'Error creating account:' : 'Error logging in:', err);
+      console.error(
+        isSignUpMode ? "Error creating account:" : "Error logging in:",
+        err,
+      );
       setError(err.message);
     }
   };
@@ -131,7 +136,7 @@ function LoginPage() {
           <button
             type="submit"
             className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200 mt-2"
-            style={{ backgroundColor: 'rgba(17,183,122,.856)' }}
+            style={{ backgroundColor: "rgba(17,183,122,.856)" }}
           >
             {isSignUpMode ? "Create Account" : "Sign In"}
           </button>
@@ -150,7 +155,7 @@ function LoginPage() {
           type="button"
           onClick={signInWithGoogle}
           className="w-full py-3 px-4 border border-gray-300 hover:bg-gray-50 text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3"
-          style={{ backgroundColor: 'rgba(17,183,122,.856)' }}
+          style={{ backgroundColor: "rgba(17,183,122,.856)" }}
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             {/* Google icon paths */}

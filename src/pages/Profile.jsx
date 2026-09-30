@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const ProfilePage = () => {
-  const [units, setUnits] = useState('');
+  const [units, setUnits] = useState("");
   const [workoutDays, setWorkoutDays] = useState(0);
-  const [primaryGoal, setPrimaryGoal] = useState('');
-  const [experienceLevel, setExperienceLevel] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
+  const [primaryGoal, setPrimaryGoal] = useState("");
+  const [experienceLevel, setExperienceLevel] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
   const [priorityMuscleGroups, setPriorityMuscleGroups] = useState([]);
-  const [injuryHistory, setInjuryHistory] = useState('');
+  const [injuryHistory, setInjuryHistory] = useState("");
   const [equipmentAvailable, setEquipmentAvailable] = useState([]);
   /* auto-calculated from logs, not user input
   calculate using the Epley formula: 1RM = weight × (1 + reps/30) or the Brzycki formula: 1RM = weight × (36 / (37 - reps))
@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
   // onChange={(e) => setDisplayName(e.target.value)}
 
-    // temp test data for user input
+  // temp test data for user input
   const inputData = {
     units: units,
     workoutDays: workoutDays,
@@ -31,16 +31,17 @@ const ProfilePage = () => {
     equipmentAvailable: equipmentAvailable,
   };
 
-  console.log('Current input data:', inputData);
+  console.log("Current input data:", inputData);
 
   return (
     <div className="min-h-screen bg-[#1e2225] py-8 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl space-y-8">
-
         {/* 1. Basic Info Card */}
         <div className="overflow-hidden rounded-xl border border-gray-200 bg-[#282c30]">
-          <div className="border-b border-gray-20 px-6 py-4"
-            style={{ backgroundColor: 'rgba(17,183,122,.856)' }}>
+          <div
+            className="border-b border-gray-20 px-6 py-4"
+            style={{ backgroundColor: "rgba(17,183,122,.856)" }}
+          >
             <h1 className="text-xl font-semibold text-white">My Profile</h1>
           </div>
 
@@ -61,7 +62,7 @@ const ProfilePage = () => {
                 <button
                   type="button"
                   className="mt-4 inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-50"
-                  style={{ backgroundColor: 'rgba(17,183,122,.856)' }}
+                  style={{ backgroundColor: "rgba(17,183,122,.856)" }}
                 >
                   Edit Profile
                 </button>
@@ -70,18 +71,30 @@ const ProfilePage = () => {
 
             {/* Training Preferences */}
             <div className="mt-10 border- pt-8">
-              <h3 className="text-lg font-medium text-white">Training Preferences</h3>
+              <h3 className="text-lg font-medium text-white">
+                Training Preferences
+              </h3>
 
               <dl className="mt-4 space-y-5 text-sm">
                 <div className="flex items-center justify-between">
                   <dt className="text-white">Units</dt>
                   <dd className="flex items-center gap-6">
                     <label className="flex items-center gap-2">
-                      <input onClick={() => setUnits('metric')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                      <input
+                        onClick={() => setUnits("metric")}
+                        type="checkbox"
+                        readOnly
+                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      />
                       <span className="text-white">Metric (kg/cm)</span>
                     </label>
                     <label className="flex items-center gap-2">
-                      <input onClick={() => setUnits('imperial')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                      <input
+                        onClick={() => setUnits("imperial")}
+                        type="checkbox"
+                        readOnly
+                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      />
                       <span className="text-white">Imperial</span>
                     </label>
                   </dd>
@@ -111,12 +124,20 @@ const ProfilePage = () => {
         </div>
 
         {/* 2. Training Profile Card */}
-        <div className="overflow-hidden rounded-xl border border-gray-200 bg-[#282c30]"
-        style={{borderColor: '#3a3f44',
-                    '--tw-ring-color': 'rgba(17,183,122,.5)'}}>
-          <div className="border-b border-gray-200 px-6 py-4"
-            style={{ backgroundColor: 'rgba(17,183,122,.856)' }}>
-            <h2 className="text-lg font-medium text-white">🎯 Training Profile</h2>
+        <div
+          className="overflow-hidden rounded-xl border border-gray-200 bg-[#282c30]"
+          style={{
+            borderColor: "#3a3f44",
+            "--tw-ring-color": "rgba(17,183,122,.5)",
+          }}
+        >
+          <div
+            className="border-b border-gray-200 px-6 py-4"
+            style={{ backgroundColor: "rgba(17,183,122,.856)" }}
+          >
+            <h2 className="text-lg font-medium text-white">
+              🎯 Training Profile
+            </h2>
           </div>
 
           <div className="p-6">
@@ -125,15 +146,30 @@ const ProfilePage = () => {
                 <dt className="text-white">Primary Goal</dt>
                 <dd className="flex items-center gap-6">
                   <label className="flex items-center gap-2">
-                    <input onClick={() => setPrimaryGoal('strength')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300 text-indigo-600" />
+                    <input
+                      onClick={() => setPrimaryGoal("strength")}
+                      type="checkbox"
+                      readOnly
+                      className="h-4 w-4 rounded border-gray-300 text-indigo-600"
+                    />
                     <span className="text-white">Strength</span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input onClick={() => setPrimaryGoal('hypertrophy')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
+                    <input
+                      onClick={() => setPrimaryGoal("hypertrophy")}
+                      type="checkbox"
+                      readOnly
+                      className="h-4 w-4 rounded border-gray-300"
+                    />
                     <span className="text-white">Hypertrophy</span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input onClick={() => setPrimaryGoal('endurance')} type="checkbox" readOnly className="h-4 w-4 rounded border-gray-300" />
+                    <input
+                      onClick={() => setPrimaryGoal("endurance")}
+                      type="checkbox"
+                      readOnly
+                      className="h-4 w-4 rounded border-gray-300"
+                    />
                     <span className="text-white">Endurance</span>
                   </label>
                 </dd>
@@ -147,7 +183,9 @@ const ProfilePage = () => {
                     onChange={(e) => setExperienceLevel(e.target.value)}
                     className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                   >
-                    <option value="" disabled>Select level</option>
+                    <option value="" disabled>
+                      Select level
+                    </option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="advanced">Advanced</option>
@@ -158,28 +196,45 @@ const ProfilePage = () => {
               <div className="flex justify-between">
                 <dt className="text-white">Training Since</dt>
                 <dd className="font-medium text-white">
-                  <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+                  <input
+                    type="date"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  />
                 </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt className="text-white">Priority Muscle Groups</dt>
                 <dd className="font-medium text-white">
-                  <input type="text" value={priorityMuscleGroups} onChange={(e) => setPriorityMuscleGroups(e.target.value)} placeholder="e.g. Chest, Back" className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+                  <input
+                    type="text"
+                    value={priorityMuscleGroups}
+                    onChange={(e) => setPriorityMuscleGroups(e.target.value)}
+                    placeholder="e.g. Chest, Back"
+                    className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  />
                 </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt className="text-white">Injury History</dt>
                 <dd className="text-white max-w-prose">
-                  <input type="text" value={injuryHistory} onChange={(e) => setInjuryHistory(e.target.value)} placeholder="e.g. None, or Knee injury in 2022" className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+                  <input
+                    type="text"
+                    value={injuryHistory}
+                    onChange={(e) => setInjuryHistory(e.target.value)}
+                    placeholder="e.g. None, or Knee injury in 2022"
+                    className="text-white w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  />
                 </dd>
               </div>
 
               <div className="flex justify-between items-start">
                 <dt className="text-white pt-1">Equipment Available</dt>
                 <dd className="flex flex-wrap gap-x-6 gap-y-2 text-white">
-                  {['Barbell', 'Dumbbells', 'Bench'].map(item => (
+                  {["Barbell", "Dumbbells", "Bench"].map((item) => (
                     <label key={item} className="flex items-center gap-2">
                       <input
                         onClick={() => setEquipmentAvailable(item)}
@@ -197,17 +252,21 @@ const ProfilePage = () => {
 
         {/* 3. Personal Records Card */}
         <div className="overflow-hidden rounded-xl border border-gray-200 bg-[#282c30]">
-          <div className="border-b border-gray-200 px-6 py-4"
-            style={{ backgroundColor: 'rgba(17,183,122,.856)' }}>
-            <h2 className="text-lg font-medium text-white">💪 Personal Records (auto-calculated from logs)</h2>
+          <div
+            className="border-b border-gray-200 px-6 py-4"
+            style={{ backgroundColor: "rgba(17,183,122,.856)" }}
+          >
+            <h2 className="text-lg font-medium text-white">
+              💪 Personal Records (auto-calculated from logs)
+            </h2>
           </div>
 
           <div className="divide-y divide-gray-100 ">
             {[
-              { lift: 'Bench Press', value: '52 kg', date: 'Feb 1, 2026' },
-              { lift: 'Squat', value: '100 kg', date: 'Jan 28, 2026' },
-              { lift: 'Deadlift', value: '120 kg', date: 'Jan 25, 2026' },
-              { lift: 'Overhead Press', value: '35 kg', date: 'Jan 30, 2026' },
+              { lift: "Bench Press", value: "52 kg", date: "Feb 1, 2026" },
+              { lift: "Squat", value: "100 kg", date: "Jan 28, 2026" },
+              { lift: "Deadlift", value: "120 kg", date: "Jan 25, 2026" },
+              { lift: "Overhead Press", value: "35 kg", date: "Jan 30, 2026" },
             ].map((record) => (
               <div
                 key={record.lift}
@@ -222,7 +281,6 @@ const ProfilePage = () => {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

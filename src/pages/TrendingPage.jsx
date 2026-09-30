@@ -8,19 +8,21 @@ function TrendingPage() {
     const data = await response.json();
     console.log(data);
 
-    const extracted = data.items.map((value) => {
-      const parts = value.player.embedHtml.split(" ");
-      const src = parts.find((p) => p.startsWith("src="));
+    const extracted = data.items
+      .map((value) => {
+        const parts = value.player.embedHtml.split(" ");
+        const src = parts.find((p) => p.startsWith("src="));
 
-      if (src) {
-        let url = src.slice(5, -1);
-        if (url.startsWith("//")) {
-          url = "https:" + url;
+        if (src) {
+          let url = src.slice(5, -1);
+          if (url.startsWith("//")) {
+            url = "https:" + url;
+          }
+          return url;
         }
-        return url;
-      }
-      return null;
-    }).filter(Boolean);
+        return null;
+      })
+      .filter(Boolean);
 
     setUrls(extracted);
   };
@@ -30,45 +32,50 @@ function TrendingPage() {
   }, []);
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      backgroundColor: '#1e2225', 
-      color: 'white', 
-      padding: '20px' 
-    }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ 
-            fontSize: '3rem', 
-            marginBottom: '10px',
-            background: 'linear-gradient(135deg, rgba(17,183,122,.856) 0%, #4ade80 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#1e2225",
+        color: "white",
+        padding: "20px",
+      }}
+    >
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <header style={{ textAlign: "center", marginBottom: "40px" }}>
+          <h1
+            style={{
+              fontSize: "3rem",
+              marginBottom: "10px",
+              background:
+                "linear-gradient(135deg, rgba(17,183,122,.856) 0%, #4ade80 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             🔥 Trending Fitness
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#9ca3af' }}>
+          <p style={{ fontSize: "1.2rem", color: "#9ca3af" }}>
             Discover the most popular sports videos this week
           </p>
         </header>
       </div>
 
       <div className="mainboard">
-      <div className="youtube" id="video">
-        {urls.map((link, index) => (
-          <div key={index}>
-            <iframe
-              width="640"
-              height="480"
-              src={link}
-              title={`video-${index}`}
-              allow="autoplay"
-              allowFullScreen
-            ></iframe>
-          </div>
-        ))}
-      </div>
+        <div className="youtube" id="video">
+          {urls.map((link, index) => (
+            <div key={index}>
+              <iframe
+                width="640"
+                height="480"
+                src={link}
+                title={`video-${index}`}
+                allow="autoplay"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

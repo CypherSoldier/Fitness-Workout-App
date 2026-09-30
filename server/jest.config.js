@@ -6,8 +6,8 @@ module.exports = {
     "models/**/*.js",
     "middleware/**/*.js",
     "routes/**/*.js",
-    "!**/node_modules/**"
+    "!**/node_modules/**",
   ],
   coverageDirectory: "coverage",
-  verbose: true
+  verbose: true,
 };
